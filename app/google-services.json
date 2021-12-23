@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "961637284674",
+    "project_id": "plantlife-7fa27",
+    "storage_bucket": "plantlife-7fa27.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:961637284674:android:d37cd232b7042b6d1466db",
+        "android_client_info": {
+          "package_name": "com.example.plant_life"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "961637284674-7hl3egib84eg07nvjlgmtvsdmejqpiin.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.plant_life",
+            "certificate_hash": "21c5a9230c9a823913b5a6608cf4f99f73a5d483"
+          }
+        },
+        {
+          "client_id": "961637284674-gngkki4vpkjj984t2eja31b0ddrc45ht.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyByGDFyMy8yBlSXlhtG34HDKT0C7ZgoNwU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "961637284674-gngkki4vpkjj984t2eja31b0ddrc45ht.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
