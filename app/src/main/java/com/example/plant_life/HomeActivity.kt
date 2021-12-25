@@ -9,7 +9,7 @@ import com.example.plant_life.databinding.ActivityProfileBinding
 import com.example.plant_life.databinding.ActivitySignUpBinding
 import com.google.firebase.auth.FirebaseAuth
 
-class ProfileActivity : AppCompatActivity() {
+class HomeActivity : AppCompatActivity() {
     //ViewBinding
     private lateinit var binding: ActivityProfileBinding
 

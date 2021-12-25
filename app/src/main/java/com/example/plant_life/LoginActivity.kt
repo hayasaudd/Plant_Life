@@ -5,7 +5,6 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.PatternMatcher
 import android.text.TextUtils
 import android.util.AttributeSet
 import android.util.Patterns
@@ -99,7 +98,7 @@ class LoginActivity : AppCompatActivity() {
                 val firebaseUser =firebaseAuth.currentUser
                 val email = firebaseUser!!.email
                 Toast.makeText(this, "LoggedIn as $email ", Toast.LENGTH_SHORT).show()
-                startActivity(Intent(this, ProfileActivity::class.java))
+                startActivity(Intent(this, HomeActivity::class.java))
                 finish()
             }
             .addOnFailureListener{ e->
@@ -115,7 +114,7 @@ class LoginActivity : AppCompatActivity() {
         val firbaseUser = firebaseAuth.currentUser
         if(firbaseUser != null){
             //user is alredy logged in
-            startActivity(Intent(this, ProfileActivity::class.java))
+            startActivity(Intent(this, HomeActivity::class.java))
             finish()
         }
     }

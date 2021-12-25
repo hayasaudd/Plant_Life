@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Plant_Life">
         <activity
-            android:name=".ProfileActivity"
+            android:name=".HomeActivity"
             android:exported="false" />
         <activity
             android:name=".SignUpActivity"
