@@ -4,14 +4,23 @@ import android.app.ProgressDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.ActionBar
-import com.example.plant_life.databinding.ActivityProfileBinding
-import com.example.plant_life.databinding.ActivitySignUpBinding
+import androidx.fragment.app.Fragment
+import androidx.navigation.NavHost
+import androidx.navigation.findNavController
+import androidx.navigation.ui.setupWithNavController
+import com.example.plant_life.databinding.ActivityHomeBinding
+import com.example.plant_life.fragments.Home_fragment
+import com.example.plant_life.fragments.MyPlant_fragment
+import com.example.plant_life.fragments.Settings_fragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
+
 
 class HomeActivity : AppCompatActivity() {
     //ViewBinding
-    private lateinit var binding: ActivityProfileBinding
+    private lateinit var binding: ActivityHomeBinding
 
     //ActionBar
     private lateinit var actionBar: ActionBar
@@ -23,9 +32,12 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var firebaseAuth: FirebaseAuth
     private var email= ""
     private var password = ""
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding= ActivityProfileBinding.inflate(layoutInflater)
+        binding= ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
         //configure ActionBar
         actionBar = supportActionBar!!
@@ -35,24 +47,41 @@ class HomeActivity : AppCompatActivity() {
         firebaseAuth = FirebaseAuth.getInstance()
         chekUser()
 
-        //handle click - logout
-        binding.logoutBtn.setOnClickListener{
-            firebaseAuth.signOut()
-            chekUser()
-        }
+////        handle click - logout--------------------------------------
+//        binding.logoutBtn.setOnClickListener{
+//            firebaseAuth.signOut()
+//            chekUser()
+//        }
+//--------------------------------------------------------------------
+
+
+
+        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.buttoa_nvigation)
+        val navController = findNavController(R.id.nav_host_fragment)
+        bottomNavigationView.setupWithNavController(navController)
+
+
+
     }
+
+    private fun funds(): Boolean {
+return true
+
+    }
+
+
+
 
     private fun chekUser() {
         //check user is logged in or not
         val firebaseUser= firebaseAuth.currentUser
 
         if (firebaseUser != null)
-        {
-            //user not null- user is logged in - get user info
+        { //user not null- user is logged in - get user info
             val email = firebaseUser.email
-
-            //set to text view
-            binding.emailTv.text = email
+//---------related to display the email of current user
+//            //set to text view
+//            binding.emailTv.text = email
         }
         else{
             //user is null- user is not logged in - go to login activity

@@ -46,6 +46,7 @@ class LoginActivity : AppCompatActivity() {
 
         //init firebaseAuth
         firebaseAuth = FirebaseAuth.getInstance()
+//        checkUser()
 
         //handel click - open SignUpActivity
         binding.noAccountTv.setOnClickListener {

@@ -18,6 +18,15 @@ class MainActivity : AppCompatActivity() {
 
         binding.start.setOnClickListener {
             startActivity(Intent(this, SignUpActivity::class.java))
+
+        }
+
+        //handel click alredy have acount
+        binding.haveAccount.setOnClickListener{
+            //validate data
+            startActivity(Intent(this, LoginActivity::class.java))
+            finish()
         }
     }
+
 }

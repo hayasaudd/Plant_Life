@@ -53,6 +53,8 @@ class SignUpActivity : AppCompatActivity() {
             //validate data
             validateData()
         }
+
+
     }
 
     private fun validateData() {
