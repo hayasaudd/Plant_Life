@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="plantInfo"
+            type="com.example.plant_life.dataApi.ResponseItem" />
+
+        <variable
+            name="homeFragment"
+            type="com.example.plant_life.fragments.HomeFragment" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:background="@color/white"
+        app:cardUseCompatPadding="true"
+        card_view:cardBackgroundColor="@android:color/transparent"
+        card_view:cardElevation="0dp"
+        app:cardCornerRadius="20dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="400dp"
+            android:layout_height="match_parent"
+            android:background="#79575420"
+            android:backgroundTint="#61FFFFFF"
+            >
+
+            <ImageView
+                android:id="@+id/plant_image"
+                android:layout_width="180dp"
+                android:layout_height="200dp"
+                android:padding="6dp"
+                android:scaleType="fitXY"
+                android:layout_marginTop="-4dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:imageUrl="@{plantInfo.image}"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/title"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginEnd="28dp"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:text="@{plantInfo.plantName}"
+                app:layout_constraintStart_toEndOf="@id/plant_image"
+                app:layout_constraintTop_toTopOf="@id/plant_image" />
+
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="@id/title" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/teal_200"
+                android:text="My plant+"
+                android:textColor="@color/white"
+                android:shape="rectangle"
+                android:padding="10dp"
+                android:outlineAmbientShadowColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/plant_image" />
+
+
+
+<!--            <ImageView-->
+<!--                android:id="@+id/like_img"-->
+<!--                android:layout_width="40dp"-->
+<!--                android:layout_height="40dp"-->
+<!--                android:layout_marginEnd="8dp"-->
+<!--                android:layout_marginBottom="8dp"-->
+<!--                android:src="@drawable/favorite_border"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintEnd_toEndOf="parent" />-->
+
+<!--            <com.google.android.material.textview.MaterialTextView-->
+<!--                android:id="@+id/date"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="5dp"-->
+<!--                android:layout_marginTop="1dp"-->
+<!--                android:text="@{movie.release_date}"-->
+<!--                android:textSize="16sp"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent" />-->
+
+<!--            <com.google.android.material.textview.MaterialTextView-->
+<!--                android:id="@+id/rate_avg"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="1dp"-->
+<!--                android:layout_marginTop="1dp"-->
+<!--                android:text="@{movie.voteAverage}"-->
+<!--                android:textSize="16sp"-->
+<!--                app:layout_constraintBottom_toBottomOf="@id/star_img"-->
+<!--                app:layout_constraintStart_toEndOf="@id/star_img"-->
+<!--                app:layout_constraintTop_toTopOf="@id/star_img" />-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/star_img"-->
+<!--                android:layout_width="30dp"-->
+<!--                android:layout_height="30dp"-->
+<!--                android:src="@drawable/star"-->
+<!--                app:layout_constraintBottom_toTopOf="@id/date"-->
+<!--                app:layout_constraintStart_toStartOf="parent" />-->
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+
+</layout>
