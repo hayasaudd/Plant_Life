@@ -29,11 +29,11 @@
         app:layout_constraintStart_toStartOf="parent"
         android:background="?android:attr/windowBackground"
         app:itemBackground="@color/white"
-        app:itemIconTint="@color/teal_700"
-        app:itemTextColor="@color/teal_700"
+        app:itemIconTint="@color/greenicon"
+        app:itemTextColor="@color/greenicon"
         app:menu="@menu/nav_menu" />
 
-
+</androidx.constraintlayout.widget.ConstraintLayout>
 
 
 
@@ -62,4 +62,3 @@
 <!--      />-->
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>

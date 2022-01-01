@@ -4,16 +4,10 @@ import android.app.ProgressDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.ActionBar
-import androidx.fragment.app.Fragment
-import androidx.navigation.NavHost
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.plant_life.databinding.ActivityHomeBinding
-import com.example.plant_life.fragments.Home_fragment
-import com.example.plant_life.fragments.MyPlant_fragment
-import com.example.plant_life.fragments.Settings_fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 
@@ -52,9 +46,6 @@ class HomeActivity : AppCompatActivity() {
 //            firebaseAuth.signOut()
 //            chekUser()
 //        }
-//--------------------------------------------------------------------
-
-
 
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.buttoa_nvigation)
         val navController = findNavController(R.id.nav_host_fragment)
