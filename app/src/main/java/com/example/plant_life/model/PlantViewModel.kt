@@ -45,6 +45,11 @@ class PlantViewModel: ViewModel() {
 
     val _Temperature = MutableLiveData<String>()
     val Temperature: MutableLiveData<String> get() = _Temperature
+
+    var _favPlant = MutableLiveData<List<ResponseItem>>()
+    val favPlant: MutableLiveData<List<ResponseItem>> get() = _favPlant
+
+
     init {
         getplantInfo()
     }
@@ -66,7 +71,13 @@ class PlantViewModel: ViewModel() {
         }
 
     }
+    fun setMyPlantList() {
+        _favPlant.value = favPlantList.loadMyPlant()
+    }
 
 
+    companion object {
+        val favPlantList = MyPlantViewModel()
+    }
 
 }

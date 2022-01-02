@@ -6,6 +6,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         tools:context=".fragments.ProfileFragment"
+        android:background="@color/whitegreen2"
         android:layout_height="match_parent">
 
         <de.hdodenhof.circleimageview.CircleImageView
@@ -86,6 +87,26 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvBio"
             />
+            <TextView
+            android:id="@+id/loggnedIn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="You're logged-In as"
+            style="@style/TextAppearance.MaterialComponents.Caption"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/etBio"/>
+
+            <TextView
+                android:id="@+id/emailTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email"
+                style="@style/TextAppearance.AppCompat.Body1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/loggnedIn"
+            />
 
         <Button
             android:id="@+id/SaveButton"
@@ -95,7 +116,7 @@
             android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/etBio" />
+            app:layout_constraintTop_toBottomOf="@id/emailTv" />
 
         <Button
             android:id="@+id/logoutBtn"

@@ -43,7 +43,7 @@ private val plantViewModel: PlantViewModel by activityViewModels()
             Log.e("TAG", "onCreateView:  binding?.apply ${plantViewModel?.state.value}"  )
             lifecycleOwner = this@HomeFragment
             viewModel = plantViewModel
-            recyclerView?.adapter = PlantAdapter()
+            recyclerView?.adapter = PlantAdapter("my Plant")
 
         }
 

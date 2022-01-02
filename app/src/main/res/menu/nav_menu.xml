@@ -9,10 +9,7 @@
         android:id="@+id/MayPlant_fragment"
         android:icon="@drawable/plant_icon"
         android:title="@string/my_plant"/>
-    <item
-        android:id="@+id/search_icon"
-        android:icon="@drawable/search_icon"
-        android:title="@string/search"/>
+
     <item
         android:id="@+id/ProfileFragment"
         android:icon="@drawable/profile"

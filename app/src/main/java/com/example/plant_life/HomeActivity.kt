@@ -55,12 +55,6 @@ class HomeActivity : AppCompatActivity() {
 
     }
 
-    private fun funds(): Boolean {
-return true
-
-    }
-
-
 
 
     private fun chekUser() {
