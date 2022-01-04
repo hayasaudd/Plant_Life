@@ -78,7 +78,10 @@
                 android:textColor="@color/white"
                 android:shape="rectangle"
                 android:padding="10dp"
+                style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+                android:shadowRadius="@android:integer/config_longAnimTime"
                 android:outlineAmbientShadowColor="@color/white"
+                android:layout_marginBottom="@dimen/browser_actions_context_menu_min_padding"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@id/plant_image" />
 

@@ -27,4 +27,3 @@ data class ResponseItem(
 	val PlantName: String=""
 
 )
-{}

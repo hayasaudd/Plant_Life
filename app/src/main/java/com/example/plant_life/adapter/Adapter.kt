@@ -2,9 +2,11 @@ package com.example.plant_life.adapter
 
 
 
+import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.navigation.NavDirections
 import androidx.navigation.findNavController
@@ -15,13 +17,18 @@ import com.example.plant_life.R
 import com.example.plant_life.dataApi.ResponseItem
 import com.example.plant_life.databinding.ItemStyleBinding
 import com.example.plant_life.fragments.HomeFragment
+import com.example.plant_life.fragments.HomeFragmentArgs
 import com.example.plant_life.fragments.HomeFragmentDirections
 import com.example.plant_life.fragments.MyPlant_fragmentDirections
 import com.example.plant_life.model.PlantViewModel.Companion.favPlantList
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.ktx.database
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 
-class PlantAdapter(var flag :String):ListAdapter<ResponseItem,PlantAdapter.PlantInfoViewHolder>(DiffCallback) {
-
+class PlantAdapter():ListAdapter<ResponseItem,PlantAdapter.PlantInfoViewHolder>(DiffCallback) {
+    lateinit var context: Context
     lateinit var action: NavDirections
 
     inner class PlantInfoViewHolder(private var binding:
@@ -29,49 +36,43 @@ class PlantAdapter(var flag :String):ListAdapter<ResponseItem,PlantAdapter.Plant
         RecyclerView.ViewHolder(binding.root) {
         val card: CardView = binding.cardView
 
+
+        private val myPlantCollection = Firebase.firestore.collection("User profiles")
+
+
+
+
+       //val userId = auth.currentUser?.userId
         fun bind(resultsItems: ResponseItem) {
             binding.plantInfo = resultsItems
             binding.executePendingBindings()
-//            binding.plantImage.setOnClickListener {
-//                if (flag == "home") {
-//                    action = HomeFragmentDirections.actionHomeFragmentToDitealsPlantPage(
-//                        resultsItems.PlantName,
-//                        resultsItems.image,
-//                        resultsItems.Watering,
-//                        resultsItems.Temperature,
-//                        resultsItems.watarAlarm,
-//                        resultsItems.backgroundImage,
-//                        resultsItems.sparingAlarm,
-//                        resultsItems.id
-//                    )
-//                } else {
-//                    action =
-//                        MyPlant_fragmentDirections.actionMayPlantFragmentToDitealsPlantPage(
-//                            resultsItems.PlantName,
-//                            resultsItems.image,
-//                            resultsItems.Watering,
-//                            resultsItems.Temperature,
-//                            resultsItems.watarAlarm,
-//                            resultsItems.backgroundImage,
-//                            resultsItems.sparingAlarm,
-//                            resultsItems.id
-//                        )
-//                }
-//                binding.root.findNavController()
-//                    .navigate(action)
-//            }
+
+           //button to add plant to "my plant"
             binding.addToMyPlantButton.setOnClickListener {
-                favPlantList.MyPlantList.add(resultsItems)
+         var s=     favPlantList.MyPlantList.find { it.id==resultsItems.id } //check if the plant it's inn MyPlant list don't but it again
+                if(s==null) {
+                    favPlantList.MyPlantList.add(resultsItems)// add the plant in MyPlant List
+                    myPlantCollection.document("${FirebaseAuth.getInstance().currentUser?.uid ?: ""}")
+                        .update("my_planet", favPlantList.MyPlantList)
+
+                        .addOnCompleteListener {
+                            Log.d("TAG", "bind: ${it.isSuccessful} ${it.result.toString()}")
+                        }
+                }else{
+
+//                 Toast.makeText(context, "already have this plant in My Plant list", Toast.LENGTH_SHORT)
+                }
 
             }
+
         }
     }
-
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
     ): PlantInfoViewHolder {
+
         return PlantInfoViewHolder(ItemStyleBinding.inflate(LayoutInflater.from(parent.context)))
 
     }

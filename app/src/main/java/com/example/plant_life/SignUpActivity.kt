@@ -93,7 +93,7 @@ class SignUpActivity : AppCompatActivity() {
             .addOnSuccessListener {
                 //signUp success
                 progressDialog.dismiss()
-                //get current user
+                //get current User
                 val firebaseUser = firebaseAuth.currentUser
                 val email = firebaseUser!!.email
                 Toast.makeText(this, "Account created with email $email", Toast.LENGTH_SHORT).show()

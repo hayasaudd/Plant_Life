@@ -58,18 +58,18 @@ class HomeActivity : AppCompatActivity() {
 
 
     private fun chekUser() {
-        //check user is logged in or not
+        //check User is logged in or not
         val firebaseUser= firebaseAuth.currentUser
 
         if (firebaseUser != null)
-        { //user not null- user is logged in - get user info
+        { //User not null- User is logged in - get User info
             val email = firebaseUser.email
-//---------related to display the email of current user
+//---------related to display the email of current User
 //            //set to text view
 //            binding.emailTv.text = email
         }
         else{
-            //user is null- user is not logged in - go to login activity
+            //User is null- User is not logged in - go to login activity
             startActivity(Intent(this, LoginActivity::class.java))
             finish()
 

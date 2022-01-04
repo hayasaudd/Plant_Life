@@ -66,12 +66,11 @@ class PlantViewModel: ViewModel() {
                 Log.e("TAG", "getplantInfo:  error${  e }", )
 
                 _status.value=PlantApiStatus.ERROR
-                _plantInfo.value = listOf()
-            }
+                _plantInfo.value = listOf() }
         }
-
     }
     fun setMyPlantList() {
+
         _favPlant.value = favPlantList.loadMyPlant()
     }
 

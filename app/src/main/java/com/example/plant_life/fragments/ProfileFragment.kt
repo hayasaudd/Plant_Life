@@ -7,85 +7,70 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil.setContentView
-import androidx.navigation.fragment.findNavController
 import com.example.plant_life.LoginActivity
-import com.example.plant_life.R
-import com.example.plant_life.databinding.ActivityHomeBinding
 import com.example.plant_life.databinding.FragmentProfileBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.example.plant_life.dataApi.User
+import com.google.firebase.auth.ktx.auth
 
 class ProfileFragment : Fragment() {
-    private val db = Firebase.firestore
-    private lateinit var _binding: FragmentProfileBinding
+
+    private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding
-    private val collection = Firebase.firestore.collection("user profiles")
+
+    private val profileCollection = Firebase.firestore.collection("User profiles")
 
     //FirebaseAuth
     private lateinit var firebaseAuth: FirebaseAuth
-    private var email= ""
-    private var password = ""
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        val user = hashMapOf(
-            "first" to "Ada",
-            "last" to "Lovelace",
-            "born" to 1815
-        )
-        var id= FirebaseAuth.getInstance().currentUser?.uid?:""
-// Add a new document with a generated ID
-        db.collection("users/$id")
-            .add(user)
-            .addOnSuccessListener { documentReference ->
-                Log.d("TAG", "DocumentSnapshot added with ID: ${documentReference.id}")
-            }
-            .addOnFailureListener { e ->
-                Log.w("TAG", "Error adding document", e)
-            }
-
-        //        handle click - logout--------------------------------------
-        binding.logoutBtn.setOnClickListener{
-            firebaseAuth.signOut()
-            val intent =
-                Intent(this@ProfileFragment.requireContext(), LoginActivity::class.java)
-            startActivity(intent)
-        }
-
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         // Inflate the layout for this fragment
-      return inflater.inflate(R.layout.fragment_profile, container, false)
+        _binding = FragmentProfileBinding.inflate(inflater, container, false)
+        return binding!!.root
     }
 
 
-//    private fun chekUser() {
-//        //check user is logged in or not
-//        val firebaseUser= firebaseAuth.currentUser
-//
-//        if (firebaseUser != null)
-//        { //user not null- user is logged in - get user info
-//            val email = firebaseUser.email
-////---------related to display the email of current user
-//            //set to text view
-//            binding.emailTv.text = email
-//        }
-//        else{
-//            //user is null- user is not logged in - go to login activity
-//            binding.logoutBtn.setOnClickListener {
-//                val intent =
-//                    Intent(this@ProfileFragment.requireContext(), LoginActivity::class.java)
-//                startActivity(intent)
-//            }
-//
-//        }
-//    }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-}
+// handle click - logout
+        firebaseAuth= FirebaseAuth.getInstance()
+        binding!!.logoutBtn.setOnClickListener{
+            firebaseAuth.signOut()
+            val intent =
+                Intent(requireActivity(), LoginActivity::class.java)
+            startActivity(intent)
+        }
+        binding!!.SaveButton.setOnClickListener {
+            addUser(createUser())
+        }
+    }
+
+
+    fun createUser ():User{
+        var idUser= Firebase.auth.currentUser!!.uid
+        var firstName = binding!!.etFirstName.text.toString()
+        var lastName = binding!!.etLastName.text.toString()
+        var bio = binding!!.etBio.text.toString()
+        return User(idUser, firstName, lastName, bio , mapOf())
+    }
+
+    // Add a new document with a generated ID
+    fun addUser(profile : User) {
+        profileCollection.document(FirebaseAuth.getInstance().currentUser?.uid ?: "").set(profile)
+
+            .addOnCompleteListener {
+                Log.d("TAG", "addUser: ${it.isSuccessful}")
+
+
+
+            }
+
+    }}

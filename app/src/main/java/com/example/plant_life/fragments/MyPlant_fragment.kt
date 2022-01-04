@@ -16,6 +16,8 @@ import com.example.plant_life.databinding.FragmentDitealsPlantPageBinding
 import com.example.plant_life.databinding.FragmentMyPlantFragmentBinding
 import com.example.plant_life.databinding.ItemStyleBinding
 import com.example.plant_life.model.PlantViewModel
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.ktx.Firebase
 
 
 class MyPlant_fragment : Fragment() {
@@ -35,9 +37,9 @@ class MyPlant_fragment : Fragment() {
     ): View? {
         binding = FragmentMyPlantFragmentBinding.inflate(inflater)
         binding.apply {
-            lifecycleOwner = this@MyPlant_fragment
+            lifecycleOwner = viewLifecycleOwner
             viewModel = this@MyPlant_fragment.viewModel
-            recyclerView.adapter = PlantAdapter("MyPlant")
+            recyclerView.adapter = PlantAdapter()
         }
         viewModel.setMyPlantList()
         return binding.root
@@ -46,11 +48,13 @@ class MyPlant_fragment : Fragment() {
     override fun onResume() {
         super.onResume()
         viewModel.setMyPlantList()
-        binding.recyclerView.adapter = PlantAdapter("MyPlant")
+        binding.recyclerView.adapter = PlantAdapter()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         (activity as AppCompatActivity).supportActionBar?.title = "My Plant"
     }
+
+
 }

@@ -95,7 +95,7 @@ class LoginActivity : AppCompatActivity() {
                 //logi success
                 progressDialog.dismiss()
 
-                //get user information
+                //get User information
                 val firebaseUser =firebaseAuth.currentUser
                 val email = firebaseUser!!.email
                 Toast.makeText(this, "LoggedIn as $email ", Toast.LENGTH_SHORT).show()
@@ -110,11 +110,11 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun checkUser() {
-        // if user is already logged in go to profile activity
-        //get current user
+        // if User is already logged in go to profile activity
+        //get current User
         val firbaseUser = firebaseAuth.currentUser
         if(firbaseUser != null){
-            //user is alredy logged in
+            //User is alredy logged in
             startActivity(Intent(this, HomeActivity::class.java))
             finish()
         }
