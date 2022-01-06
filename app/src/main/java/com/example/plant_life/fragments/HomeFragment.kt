@@ -9,12 +9,14 @@ import android.view.ViewGroup
 import android.widget.Adapter
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.plant_life.R
 import com.example.plant_life.adapter.PlantAdapter
 import com.example.plant_life.databinding.FragmentHomeFragmentBinding
+import com.example.plant_life.databinding.FragmentUserProileInfoBinding
 import com.example.plant_life.databinding.ItemStyleBinding
 import com.example.plant_life.model.PlantViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -24,6 +26,8 @@ import kotlin.math.log
 class HomeFragment : Fragment() {
 
 private val plantViewModel: PlantViewModel by activityViewModels()
+    var _binding: FragmentHomeFragmentBinding? = null
+    private val binding get() = _binding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -60,6 +64,13 @@ private val plantViewModel: PlantViewModel by activityViewModels()
 
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+//        binding?.EditButto?.setOnClickListener{
+//            val action = UserProileInfoFragmentDirections.actionUserProileInfoFragmentToProfileFragment()
+//            Navigation.findNavController(it).navigate(action)
+//        }
+    }
 
 
 

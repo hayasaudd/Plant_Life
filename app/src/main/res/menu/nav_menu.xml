@@ -11,7 +11,7 @@
         android:title="@string/my_plant"/>
 
     <item
-        android:id="@+id/ProfileFragment"
+        android:id="@+id/userProileInfoFragment"
         android:icon="@drawable/profile"
         android:title="Profile"/>
 

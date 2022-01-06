@@ -54,6 +54,9 @@ class MyPlant_fragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         (activity as AppCompatActivity).supportActionBar?.title = "My Plant"
+        viewModel.showPlantsList()
+
+
     }
 
 
