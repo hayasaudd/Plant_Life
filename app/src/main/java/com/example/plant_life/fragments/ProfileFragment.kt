@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import com.example.plant_life.LoginActivity
 import com.example.plant_life.databinding.FragmentProfileBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -48,8 +49,11 @@ class ProfileFragment : Fragment() {
                 Intent(requireActivity(), LoginActivity::class.java)
             startActivity(intent)
         }
+
         binding!!.SaveButton.setOnClickListener {
             addUser(createUser())
+            val action = ProfileFragmentDirections.actionProfileFragmentToUserProileInfoFragment()
+            Navigation.findNavController(it).navigate(action)
         }
     }
 
