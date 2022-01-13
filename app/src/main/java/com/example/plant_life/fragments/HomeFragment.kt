@@ -25,7 +25,7 @@ import kotlin.math.log
 
 class HomeFragment : Fragment() {
 
-private val plantViewModel: PlantViewModel by activityViewModels()
+    private val plantViewModel: PlantViewModel by activityViewModels()
     var _binding: FragmentHomeFragmentBinding? = null
     private val binding get() = _binding
 
@@ -44,35 +44,21 @@ private val plantViewModel: PlantViewModel by activityViewModels()
         (activity as AppCompatActivity).supportActionBar?.title = "Home"
         plantViewModel.getplantInfo()
         binding?.apply {
-            Log.e("TAG", "onCreateView:  binding?.apply ${plantViewModel?.state.value}"  )
+            Log.e("TAG", "onCreateView:  binding?.apply ${plantViewModel?.state.value}")
             lifecycleOwner = viewLifecycleOwner
             viewModel = plantViewModel
             recyclerView?.adapter = PlantAdapter()
         }
 
-
-
         setHasOptionsMenu(true)
         return binding?.root
-        // Inflate the layout for this fragment
-       // return inflater.inflate(R.layout.fragment_home_fragment, container, false)
-
-//        val action= Add_New_TaskDirections.actionAddNewTaskToFirstpagefortak()
-//        findNavController().navigate(action)
-
-
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//        binding?.EditButto?.setOnClickListener{
-//            val action = UserProileInfoFragmentDirections.actionUserProileInfoFragmentToProfileFragment()
-//            Navigation.findNavController(it).navigate(action)
-//        }
-    }
-
-
 
     }
+
+
+}
 

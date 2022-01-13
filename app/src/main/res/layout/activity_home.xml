@@ -27,9 +27,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?android:attr/windowBackground"
-        app:itemBackground="@color/white"
-        app:itemIconTint="@color/greenicon"
-        app:itemTextColor="@color/greenicon"
+        app:itemBackground="@color/whitegreen2"
+        app:itemIconTint="@color/whitegreen1"
+        app:itemTextColor="@color/whitegreen1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/nav_menu" />

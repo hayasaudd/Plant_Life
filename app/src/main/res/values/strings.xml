@@ -11,5 +11,9 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="profile">profile</string>
     <string name="the_time_for_watering_alarm_in">The time for watering 💦 alarm in:</string>
-    <string name="the_time_for_light_alarm">The time for light 💡 alarm:</string> <!--make signup bold-->
+    <string name="the_time_for_light_alarm">The time for light 💡 alarm:</string>
+    <string name="Title">Title</string>
+    <string name="message">Message</string>
+    <string name="schedule_notification">Schedule Notification</string>
+    <string name="title">title</string> <!--make signup bold-->
 </resources>

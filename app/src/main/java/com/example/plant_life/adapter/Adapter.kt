@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.plant_life.dataApi.ResponseItem
+import com.example.plant_life.databinding.FragmentDitealsPlantPageBinding
+import com.example.plant_life.databinding.FragmentUserProileInfoBinding
 import com.example.plant_life.databinding.ItemStyleBinding
 import com.example.plant_life.fragments.HomeFragmentDirections
 import com.example.plant_life.model.PlantViewModel.Companion.favPlantList
@@ -22,8 +24,6 @@ import com.google.firebase.ktx.Firebase
 
 class PlantAdapter : ListAdapter<ResponseItem, PlantAdapter.PlantInfoViewHolder>(DiffCallback) {
     lateinit var context: Context
-    lateinit var action: NavDirections
-
 
     inner class PlantInfoViewHolder(
         private var binding:
@@ -31,7 +31,7 @@ class PlantAdapter : ListAdapter<ResponseItem, PlantAdapter.PlantInfoViewHolder>
     ) :
         RecyclerView.ViewHolder(binding.root) {
         val card: CardView = binding.cardView
-
+        var _binding: FragmentDitealsPlantPageBinding? = null
         private val myPlantCollection = Firebase.firestore.collection("User profiles")
 
         //val userId = auth.currentUser?.userId
@@ -40,7 +40,7 @@ class PlantAdapter : ListAdapter<ResponseItem, PlantAdapter.PlantInfoViewHolder>
             binding.executePendingBindings()
 
             //button to add plant to "my plant"
-            binding.addToMyPlantButton.setOnClickListener {
+            _binding?.buttonplant?.setOnClickListener {
                 var s =
                     favPlantList.MyPlantList.find { it.id == resultsItems.id } //check if the plant it's inn MyPlant list don't but it again
                 if (s == null) {
@@ -75,6 +75,7 @@ class PlantAdapter : ListAdapter<ResponseItem, PlantAdapter.PlantInfoViewHolder>
     override fun onBindViewHolder(holder: PlantInfoViewHolder, position: Int) {
         val resultsItems = getItem(position)
         holder.bind(resultsItems)
+        //hold the card of more info for plant list "after that i created argument for home fragment in nav_graf"
         holder.card.setOnClickListener {
             Log.e("TAG", "id view :${position}")
             val action = HomeFragmentDirections.actionHomeFragmentToDitealsPlantPage(position)

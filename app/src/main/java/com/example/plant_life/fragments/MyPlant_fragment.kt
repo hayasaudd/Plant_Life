@@ -41,15 +41,10 @@ class MyPlant_fragment : Fragment() {
             viewModel = this@MyPlant_fragment.viewModel
             recyclerView.adapter = PlantAdapter()
         }
-        viewModel.setMyPlantList()
+
         return binding.root
     }
 
-    override fun onResume() {
-        super.onResume()
-        viewModel.setMyPlantList()
-        binding.recyclerView.adapter = PlantAdapter()
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

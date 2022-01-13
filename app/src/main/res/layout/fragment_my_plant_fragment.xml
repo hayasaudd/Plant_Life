@@ -18,7 +18,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/whitegreen2"
+        android:background="@color/white"
         tools:context=".fragment.MyPlantFragment">
 
         <androidx.recyclerview.widget.RecyclerView
@@ -34,14 +34,7 @@
             app:listData="@{viewModel.favPlant}"
             app:spanCount="2" />
 
-<!--        <ImageView-->
-<!--            android:layout_width="100dp"-->
-<!--            android:layout_height="100dp"-->
-<!--            app:layout_constraintBottom_toBottomOf="parent"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toTopOf="parent"-->
-<!--            app:movieApiStatus="@{viewModel.status}" />-->
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

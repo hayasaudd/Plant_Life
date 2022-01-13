@@ -94,7 +94,14 @@
         <action
             android:id="@+id/action_userProileInfoFragment_to_ProfileFragment"
             app:destination="@id/ProfileFragment" />
+        <action
+            android:id="@+id/action_userProileInfoFragment_to_notification"
+            app:destination="@id/notification" />
     </fragment>
+    <activity
+        android:id="@+id/notification"
+        android:name="com.example.plant_life.Notification"
+        android:label="Notification" />
 
 
 </navigation>

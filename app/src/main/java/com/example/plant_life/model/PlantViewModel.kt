@@ -90,9 +90,7 @@ class PlantViewModel : ViewModel() {
         }
     }
 
-    fun setMyPlantList() {
-        _favPlant.value = favPlantList.loadMyPlant()
-    }
+
 
     companion object {
         val favPlantList = MyPlantViewModel()
@@ -129,17 +127,15 @@ class PlantViewModel : ViewModel() {
         profileCollection.document(userId)
             .get()
             .addOnSuccessListener { task ->
-                //   task.result.data.values.ma
 
-
-                // var task_data= task.toObject(User::class.java)
-
-                var dataList = task.get("my_planet")
-                var s = Gson().toJson(dataList)
+                val dataList = task.get("my_planet")
+                val s = Gson().toJson(dataList)
                 val listType: Type = object : TypeToken<List<ResponseItem>?>() {}.type
-                var sd: List<ResponseItem> = Gson().fromJson(s, listType)
+                val userFaveList: List<ResponseItem> = Gson().fromJson(s, listType)?: emptyList()
 //
-                _favPlant.value = sd
+                favPlantList.MyPlantList.addAll(userFaveList)
+                _favPlant.value = userFaveList
+
 
             }.addOnFailureListener {
                 println(it.message)
@@ -148,53 +144,6 @@ class PlantViewModel : ViewModel() {
     }
 
 
-}
-
-
-class Response123(json: String) : JSONObject(json) {
-    val firstName: String? = this.optString("firstName")
-    val lastName: String? = this.optString("lastName")
-    val data = this.optJSONArray("my_planet")
-        ?.let {
-            0.until(it.length()).map { i -> it.optJSONObject(i) }
-        } // returns an array of JSONObject
-        ?.map { Foo(it.toString()) } // transforms each JSONObject of the array into Foo
-}
-
-class Foo(json: String) : JSONObject(json) {
-    val id = this.optInt("id")
-    val image = this.optInt("image")
-    val watarAlarm: String? = this.optString("watarAlarm")
-    val watering: String? = this.optString("watering")
-    val backgroundImage: String? = this.optString("backgroundImage")
-    val sparingAlarm: String? = this.optString("sparingAlarm")
-    val lighting: String? = this.optString("lighting")
-
 
 }
 
-//    fun showPlantsList (){
-//        var userId = FirebaseAuth.getInstance().currentUser?.uid?:""
-//        profileCollection.document(userId).get().addOnCompleteListener{ task ->
-//
-//     //   task.result.data.values.ma
-//
-//            if (task.isSuccessful){
-//                val item = mutableListOf<ResponseItem>()
-//             var a=   task.result.data?.get("my_planet")
-//             //   Log.e("TAG","my_planet   :${a}")
-////                item.add(a.)
-//                for (plants in task.result.data!!){
-//                    Log.e("TAG","new :${plants}")
-//                  val plant = plants.to(ResponseItem::class.java)
-//
-//                  //  Log.e("TAG", "showPlantsList: ${plant}", )
-//
-//                    //item!!.add(plant)
-//                }
-//                _plantInfo.value = item
-//            }
-//        }.addOnFailureListener{
-//            println(it.message)
-//        }
-//    }

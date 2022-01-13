@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.DitealsPlantPage">
 
 <data>
@@ -19,13 +20,13 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/whitegreen2"
+
             >
 
             <ImageView
                 android:id="@+id/cover_pic"
                 android:layout_width="600dp"
-                android:layout_height="300dp"
+                android:layout_height="400dp"
                 android:layout_marginTop="-50dp"
                 android:src="@drawable/add_to_my_plant_icon"
                 app:imageUrl="@{viewModel1.plantImageBackground}"
@@ -33,10 +34,11 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+
             <androidx.cardview.widget.CardView
-                android:layout_width="350dp"
-                android:layout_height="420dp"
-                android:layout_marginTop="180dp"
+                android:layout_width="380dp"
+                android:layout_height="450dp"
+                android:layout_marginTop="200dp"
                 app:cardCornerRadius="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -49,8 +51,8 @@
 
                         <com.google.android.material.imageview.ShapeableImageView
                             android:id="@+id/plant_img"
-                            android:layout_width="180dp"
-                            android:layout_height="180dp"
+                            android:layout_width="150dp"
+                            android:layout_height="160dp"
                             android:layout_margin="8dp"
                             app:shapeAppearance="@style/RoundedSquare"
                             android:scaleType="fitXY"
@@ -63,7 +65,7 @@
                             android:layout_width="150dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
-                            android:layout_marginTop="30dp"
+                            android:layout_marginTop="15dp"
                             android:layout_marginEnd="8dp"
                             android:text="@{viewModel1.plantName}"
                             android:textSize="20sp"
@@ -73,68 +75,162 @@
                             app:layout_constraintTop_toBottomOf="@+id/plant_img"
                             />
 
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/buttonShare"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minWidth="0dp"
+                        android:paddingStart="5dp"
+                        android:paddingEnd="5dp"
+                        app:backgroundTint="@color/white"
+                        style="@style/RoundedSquare"
+                        app:icon="@drawable/shareicon"
+                        app:iconGravity="textEnd"
+                        app:iconPadding="0dp"
+                        app:iconSize="48dp"
+                        android:clickable="true"
+                        app:layout_constraintBottom_toBottomOf="@+id/buttonplant"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.764"
+                        app:layout_constraintStart_toStartOf="@id/plant_img"
+                        app:layout_constraintTop_toTopOf="@+id/buttonplant"
+                        app:layout_constraintVertical_bias="0.0" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/buttonplant"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="56dp"
+                        android:minWidth="0dp"
+                        android:paddingStart="5dp"
+                        android:paddingEnd="5dp"
+                        style="@style/RoundedSquare"
+                        app:backgroundTint="@color/white"
+                        app:icon="@drawable/addplanticom"
+                        app:iconGravity="textEnd"
+                        app:iconPadding="0dp"
+                        app:iconSize="48dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.528"
+                        app:layout_constraintStart_toStartOf="@id/plant_img"
+                        app:layout_constraintTop_toBottomOf="@+id/name" />
+
                     <androidx.cardview.widget.CardView
                         android:id="@+id/cardWater"
-                        android:layout_width="150dp"
-                        android:layout_height="200dp"
+                        android:layout_width="100dp"
+                        android:layout_height="250dp"
                         android:layout_marginTop="8dp"
                         android:layout_marginStart="16dp"
                         android:layout_marginBottom="8dp"
+                        app:cardBackgroundColor="#daeffa"
                         android:background="@color/babyBlu"
                         app:cardCornerRadius="10dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/plant_img">
                         <TextView
+                            android:id="@+id/watringtitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="Watring"
+                            android:textColor="#00266f"
+                            android:textStyle="bold"
+                            app:layout_constraintStart_toEndOf="@id/carLight"
+                            />
+
+
+                        <TextView
                             android:id="@+id/wataring"
-                            android:layout_width="150dp"
+                            android:layout_width="90dp"
                             android:layout_height="wrap_content"
                             android:textStyle="bold"
-                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="24dp"
+                            android:layout_marginStart="8dp"
+                            android:drawableBottom="@drawable/cloud"
                             android:layout_marginEnd="8dp"
                             android:text="@{viewModel1.Watering}"
                             app:layout_constraintStart_toEndOf="@id/carLight"
-                            app:layout_constraintTop_toBottomOf="@id/plant_img" />
+                            app:layout_constraintTop_toBottomOf="@id/watringtitle" />
                     </androidx.cardview.widget.CardView>
 
 
                     <androidx.cardview.widget.CardView
                         android:id="@+id/carLight"
-                        android:layout_width="150dp"
-                        android:layout_height="200dp"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="16dp"
+                        android:layout_width="100dp"
+                        android:layout_height="250dp"
+                        android:layout_marginStart="16dp"
                         android:background="@color/babyYallo"
+                        app:cardBackgroundColor="#ffffe8"
                         app:cardCornerRadius="10dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/cardWater"
                         app:layout_constraintStart_toEndOf="@id/cardWater"
-                        app:layout_constraintTop_toBottomOf="@id/plant_img">
+                        app:layout_constraintTop_toTopOf="@+id/cardWater">
+
+                        <TextView
+                            android:id="@+id/lightingtitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="Lighting"
+                            android:textColor="#D0A73C"
+                            android:textStyle="bold"
+                            app:layout_constraintStart_toStartOf="parent" />
 
                         <TextView
                             android:id="@+id/lighting"
-                            android:layout_width="150dp"
+                            android:layout_width="90dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="16dp"
-                            android:textStyle="bold"
-                            android:layout_marginTop="8dp"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="24dp"
                             android:layout_marginEnd="8dp"
+                            android:drawableBottom="@drawable/sun_icon"
                             android:text="@{viewModel1.Lighting}"
+                            android:textStyle="bold"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/parent" />
+                            app:layout_constraintTop_toBottomOf="@+id/lightingtitle" />
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardtemprech"
+                        android:layout_width="100dp"
+                        android:layout_height="250dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginBottom="8dp"
+                        app:cardBackgroundColor="#F7F0F0"
+                        app:cardCornerRadius="10dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/carLight"
+                        app:layout_constraintStart_toEndOf="@id/carLight"
+                        app:layout_constraintTop_toTopOf="@+id/carLight">
+                        <TextView
+                            android:id="@+id/tempretioName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="Tempreture"
+                            android:textColor="#C18C8C"
+                            android:textStyle="bold"
+                            app:layout_constraintStart_toEndOf="@id/carLight"
+                            />
+
+
+                        <TextView
+                            android:id="@+id/tempreture"
+                            android:layout_width="90dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="24dp"
+                            android:drawableBottom="@drawable/fireicon"
+                            android:text="@{viewModel1.temperature}"
+                            android:textStyle="bold"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/tempretioName" />
                     </androidx.cardview.widget.CardView>
 
 
-
-                    <TextView
-                            android:id="@+id/tempreture"
-                            android:layout_width="150dp"
-                            android:layout_marginEnd="8dp"
-                            android:layout_height="wrap_content"
-                            android:text="@{viewModel1.temperature}"
-                            android:textStyle="bold"
-                            android:layout_marginStart="8dp"
-                            app:layout_constraintStart_toEndOf="@id/plant_img"
-                            app:layout_constraintTop_toBottomOf="@id/name"
-                           />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 

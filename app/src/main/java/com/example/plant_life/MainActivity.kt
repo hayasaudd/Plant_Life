@@ -12,11 +12,13 @@ class MainActivity : AppCompatActivity() {
 
     //ViewBinding
     private lateinit var binding: ActivityMainBinding
+//Notification
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+//        binding1 = ActivityNotificationBindin.inflate()
 
         binding.start.setOnClickListener {
             startActivity(Intent(this, SignUpActivity::class.java))

@@ -13,15 +13,12 @@ class MyPlantViewModel {
         return MyPlantList
     }
 
-    fun addMyPlant(item: ResponseItem, view: View?) {
+    fun addMyPlant(item: ResponseItem) {
         if (MyPlantList.contains(item)) {
             MyPlantList.remove(item)
-            Toast.makeText(view?.context, "${item.PlantName} remove from favourite", Toast.LENGTH_SHORT)
-                .show()
         } else {
             MyPlantList.add(item)
-            Toast.makeText(view?.context, "${item.PlantName} add to favourite", Toast.LENGTH_SHORT)
-                .show()
+
         }
     }
 

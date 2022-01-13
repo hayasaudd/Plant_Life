@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.plant_life">
 
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -12,17 +13,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Plant_Life">
 
+        <receiver
+            android:name=".Notification"
+            android:enabled="true"/>
+
+        <activity
+            android:name=".NotificationsActivity"
+            android:exported="true" />
         <activity
             android:name=".HomeActivity"
             android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
-
         <activity
             android:name=".SignUpActivity"
             android:exported="false" />
@@ -31,9 +37,7 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="false">
-
-        </activity>
+            android:exported="false" />
     </application>
 
 </manifest>
