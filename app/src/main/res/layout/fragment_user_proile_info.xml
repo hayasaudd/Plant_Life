@@ -13,7 +13,7 @@
  <androidx.constraintlayout.widget.ConstraintLayout
      android:id="@+id/profile_image"
      android:layout_width="match_parent"
-     android:background="@color/whitegreen2"
+     android:background="@color/white"
      android:layout_height="match_parent">
      <ImageView
          android:id="@+id/profileIcon"
@@ -56,87 +56,18 @@
          app:layout_constraintStart_toEndOf="parent"
          app:layout_constraintTop_toBottomOf="@+id/profileIcon"/>
 
-     <androidx.cardview.widget.CardView
-         android:id="@+id/cardView"
-         android:layout_width="400dp"
-         android:layout_height="350dp"
-         android:layout_marginTop="16dp"
-         android:background="@color/white"
-         android:clickable="true"
-         app:cardCornerRadius="20dp"
-         app:cardUseCompatPadding="true"
-         app:layout_constraintEnd_toEndOf="parent"
-         app:layout_constraintStart_toStartOf="parent"
-         app:layout_constraintTop_toBottomOf="@+id/view"
-         card_view:cardBackgroundColor="@android:color/transparent"
-         card_view:cardElevation="0dp">
 
-         <androidx.constraintlayout.widget.ConstraintLayout
-             android:id="@+id/constran"
-             android:layout_width="400dp"
-             android:layout_height="match_parent"
-             android:background="#79575420"
-             android:backgroundTint="#61FFFFFF">
-
-             <TextView
-                 android:id="@+id/wataring"
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:layout_marginStart="16dp"
-                 android:text="@string/the_time_for_watering_alarm_in"
-                 android:textSize="20dp"
-                 android:textStyle="bold"
-                 app:layout_constraintStart_toStartOf="parent"
-                 app:layout_constraintTop_toTopOf="parent" />
-
-             <TextView
-                 android:id="@+id/timeWataring"
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:layout_marginStart="16dp"
-                 android:layout_marginTop="8dp"
-                 android:text="8:00pm"
-                 android:textSize="20dp"
-                 android:textStyle="bold"
-                 app:layout_constraintStart_toStartOf="parent"
-                 app:layout_constraintTop_toBottomOf="@+id/wataring" />
-
-             <TextView
-                 android:id="@+id/lighting"
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:layout_marginStart="16dp"
-                 android:layout_marginTop="16dp"
-                 android:text="@string/the_time_for_light_alarm"
-                 android:textSize="20dp"
-                 android:textStyle="bold"
-                 app:layout_constraintStart_toStartOf="parent"
-                 app:layout_constraintTop_toBottomOf="@+id/timeWataring" />
-
-             <TextView
-                 android:id="@+id/timelighting"
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:layout_marginStart="16dp"
-                 android:layout_marginTop="8dp"
-                 android:text="8:00pm"
-                 android:textSize="20dp"
-                 android:textStyle="bold"
-                 app:layout_constraintStart_toStartOf="parent"
-                 app:layout_constraintTop_toBottomOf="@+id/lighting" />
-         </androidx.constraintlayout.widget.ConstraintLayout>
-     </androidx.cardview.widget.CardView>
 
      <Button
          android:id="@+id/setalarmButton"
          android:layout_width="300dp"
          android:layout_height="wrap_content"
-         android:layout_marginTop="16dp"
+         android:layout_marginTop="100dp"
          android:text="Setalarm"
          android:textColor="@color/white"
          app:layout_constraintEnd_toEndOf="parent"
          app:layout_constraintStart_toStartOf="parent"
-         app:layout_constraintTop_toBottomOf="@+id/cardView" />
+         app:layout_constraintTop_toBottomOf="@+id/view" />
 
      <Button
          android:id="@+id/EditButton"

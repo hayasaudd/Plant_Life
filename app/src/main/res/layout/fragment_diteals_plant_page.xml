@@ -3,7 +3,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.DitealsPlantPage">
 
 <data>
@@ -13,6 +12,9 @@
     <variable
         name="ditealsFragment"
         type="com.example.plant_life.fragments.DitealsPlantPage" />
+    <variable
+        name="plantInfo1"
+        type="com.example.plant_life.dataApi.ResponseItem" />
 </data>
 
 
@@ -76,45 +78,7 @@
                             />
 
 
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/buttonShare"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:minWidth="0dp"
-                        android:paddingStart="5dp"
-                        android:paddingEnd="5dp"
-                        app:backgroundTint="@color/white"
-                        style="@style/RoundedSquare"
-                        app:icon="@drawable/shareicon"
-                        app:iconGravity="textEnd"
-                        app:iconPadding="0dp"
-                        app:iconSize="48dp"
-                        android:clickable="true"
-                        app:layout_constraintBottom_toBottomOf="@+id/buttonplant"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.764"
-                        app:layout_constraintStart_toStartOf="@id/plant_img"
-                        app:layout_constraintTop_toTopOf="@+id/buttonplant"
-                        app:layout_constraintVertical_bias="0.0" />
 
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/buttonplant"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="56dp"
-                        android:minWidth="0dp"
-                        android:paddingStart="5dp"
-                        android:paddingEnd="5dp"
-                        style="@style/RoundedSquare"
-                        app:backgroundTint="@color/white"
-                        app:icon="@drawable/addplanticom"
-                        app:iconGravity="textEnd"
-                        app:iconPadding="0dp"
-                        app:iconSize="48dp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.528"
-                        app:layout_constraintStart_toStartOf="@id/plant_img"
-                        app:layout_constraintTop_toBottomOf="@+id/name" />
 
                     <androidx.cardview.widget.CardView
                         android:id="@+id/cardWater"

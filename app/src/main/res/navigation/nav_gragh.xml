@@ -57,6 +57,9 @@
         <action
             android:id="@+id/action_Home_fragment_to_ditealsPlantPage"
             app:destination="@id/ditealsPlantPage" />
+        <action
+            android:id="@+id/action_Home_fragment_to_notification"
+            app:destination="@id/notification" />
     </fragment>
 
     <fragment
@@ -64,6 +67,7 @@
         android:name="com.example.plant_life.fragments.MyPlant_fragment"
         android:label="fragment_my_plant_fragment"
         tools:layout="@layout/fragment_my_plant_fragment" />
+
 
     <fragment
         android:id="@+id/ditealsPlantPage"
@@ -76,6 +80,9 @@
         <argument
             android:name="id"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_ditealsPlantPage_to_MayPlant_fragment"
+            app:destination="@id/MayPlant_fragment" />
     </fragment>
     <fragment
         android:id="@+id/ProfileFragment"

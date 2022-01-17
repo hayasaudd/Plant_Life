@@ -26,4 +26,6 @@ data class ResponseItem(
 
 	val PlantName: String=""
 
-)
+){
+	var isFavPlant: Boolean = true
+}

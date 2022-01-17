@@ -43,9 +43,16 @@ class UserProileInfoFragment : Fragment() {
         }
 
         binding?.setalarmButton?.setOnClickListener {
-            Toast.makeText(requireContext(), "set alarm of watering and lighting ", Toast.LENGTH_SHORT).show()
-                val intent = Intent(this@UserProileInfoFragment.requireContext(), NotificationsActivity::class.java)
-                startActivity(intent)
+            Toast.makeText(
+                requireContext(),
+                "set alarm of watering and lighting ",
+                Toast.LENGTH_SHORT
+            ).show()
+            val intent = Intent(
+                this@UserProileInfoFragment.requireContext(),
+                NotificationsActivity::class.java
+            )
+            startActivity(intent)
         }
     }
 }

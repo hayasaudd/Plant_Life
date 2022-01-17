@@ -1,26 +1,21 @@
 package com.example.plant_life.fragments
 
+
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Adapter
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.activityViewModels
-import androidx.navigation.Navigation
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.setupWithNavController
-import com.example.plant_life.R
+import com.example.plant_life.NotificationsActivity
 import com.example.plant_life.adapter.PlantAdapter
 import com.example.plant_life.databinding.FragmentHomeFragmentBinding
-import com.example.plant_life.databinding.FragmentUserProileInfoBinding
 import com.example.plant_life.databinding.ItemStyleBinding
 import com.example.plant_life.model.PlantViewModel
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import kotlin.math.log
 
 
 class HomeFragment : Fragment() {
@@ -28,6 +23,7 @@ class HomeFragment : Fragment() {
     private val plantViewModel: PlantViewModel by activityViewModels()
     var _binding: FragmentHomeFragmentBinding? = null
     private val binding get() = _binding
+    private var binding2: ItemStyleBinding? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,18 +43,28 @@ class HomeFragment : Fragment() {
             Log.e("TAG", "onCreateView:  binding?.apply ${plantViewModel?.state.value}")
             lifecycleOwner = viewLifecycleOwner
             viewModel = plantViewModel
-            recyclerView?.adapter = PlantAdapter()
+            recyclerView?.adapter = PlantAdapter(requireContext(), false)
         }
-
         setHasOptionsMenu(true)
         return binding?.root
     }
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding2?.alarmButton?.setOnClickListener {
+            Toast.makeText(
+                requireContext(),
+                "Set alarm of watering and lighting",
+                Toast.LENGTH_SHORT
+            ).show()
+            val intent =
+                Intent(this@HomeFragment.requireContext(), NotificationsActivity::class.java)
+            startActivity(intent)
+        }
     }
 
-
 }
+
 

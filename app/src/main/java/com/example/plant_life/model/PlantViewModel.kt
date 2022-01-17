@@ -1,6 +1,9 @@
 package com.example.plant_life.model
 
+import android.content.Intent
 import android.util.Log
+import android.widget.Toast
+import androidx.core.content.ContextCompat.startActivity
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -91,7 +94,6 @@ class PlantViewModel : ViewModel() {
     }
 
 
-
     companion object {
         val favPlantList = MyPlantViewModel()
     }
@@ -131,18 +133,16 @@ class PlantViewModel : ViewModel() {
                 val dataList = task.get("my_planet")
                 val s = Gson().toJson(dataList)
                 val listType: Type = object : TypeToken<List<ResponseItem>?>() {}.type
-                val userFaveList: List<ResponseItem> = Gson().fromJson(s, listType)?: emptyList()
-//
+                val userFaveList: List<ResponseItem> = Gson().fromJson(s, listType) ?: emptyList()
+
                 favPlantList.MyPlantList.addAll(userFaveList)
                 _favPlant.value = userFaveList
-
 
             }.addOnFailureListener {
                 println(it.message)
             }
 
     }
-
 
 
 }

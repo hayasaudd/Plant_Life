@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:card_view="http://schemas.android.com/apk/res-auto">
 
@@ -45,24 +46,22 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
 
-
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/title"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:layout_marginTop="24dp"
-                android:layout_marginEnd="28dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="30dp"
+                android:text="@{plantInfo.plantName}"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:text="@{plantInfo.plantName}"
                 app:layout_constraintStart_toEndOf="@id/plant_image"
                 app:layout_constraintTop_toTopOf="@id/plant_image" />
 
 
 
             <com.google.android.material.textview.MaterialTextView
-                android:textSize="16sp"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -70,28 +69,77 @@
                 app:layout_constraintBottom_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="@id/title" />
 
-            <Button
-                android:id="@+id/addToMyPlantButton"
+            <!--            <com.google.android.material.button.MaterialButton-->
+<!--                android:id="@+id/addToMyPlantButton"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="56dp"-->
+<!--                android:minWidth="0dp"-->
+<!--                android:paddingStart="8dp"-->
+<!--                android:paddingEnd="5dp"-->
+<!--                style="@style/RoundedSquare"-->
+<!--                app:backgroundTint="@color/whitegreen1"-->
+<!--                app:icon="@drawable/addplanticom"-->
+<!--                app:iconGravity="textEnd"-->
+<!--                app:iconPadding="0dp"-->
+<!--                app:iconSize="40dp"-->
+<!--                android:layout_marginBottom="@dimen/browser_actions_context_menu_min_padding"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintStart_toEndOf="@id/plant_image"-->
+<!--              />-->
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonShare"
+                style="@style/RoundedSquare"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@color/teal_200"
-                android:text="My plant+"
-                android:textColor="@color/greenicon"
-                android:shape="rectangle"
-                android:padding="10dp"
-                android:shadowColor="@color/greenicon"
-                android:textColorLink="@color/greenicon"
-                android:outlineSpotShadowColor="@color/greenicon"
-                style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
-                android:shadowRadius="@android:integer/config_longAnimTime"
-                android:outlineAmbientShadowColor="@color/white"
-                android:layout_marginBottom="@dimen/browser_actions_context_menu_min_padding"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="28dp"
+                android:clickable="true"
+                android:minWidth="0dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="5dp"
+                app:backgroundTint="@color/whitegreen1"
+                app:icon="@drawable/baseline_share"
+                app:iconGravity="textEnd"
+                app:iconPadding="0dp"
+                app:iconSize="30dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@id/plant_image" />
+                app:layout_constraintStart_toEndOf="@+id/plant_image" />
+
+            <ImageView
+                android:id="@+id/like_img"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/favorite_border"
+                app:layout_constraintStart_toEndOf="@+id/alarmButton"
+                app:layout_constraintTop_toTopOf="@+id/alarmButton" />
+
+            <Button
+                android:id="@+id/alarmButton"
+                style="@style/RoundedSquare"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginBottom="16dp"
+                android:minWidth="0dp"
+                android:clickable="true"
+                android:paddingStart="8dp"
+                android:paddingEnd="5dp"
+                app:backgroundTint="@color/whitegreen1"
+                app:icon="@drawable/alarm"
+                app:iconGravity="textEnd"
+                app:iconPadding="0dp"
+                app:iconSize="30dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/buttonShare"
+                app:layout_constraintTop_toTopOf="@+id/buttonShare"
+                app:layout_constraintVertical_bias="0.0" />
 
 
-
-<!--            <ImageView-->
+            <!--            <ImageView-->
 <!--                android:id="@+id/like_img"-->
 <!--                android:layout_width="40dp"-->
 <!--                android:layout_height="40dp"-->

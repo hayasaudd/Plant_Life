@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Plant_Life</string>
+    <string name="app_name">Plant Life</string>
     <string name="login">login</string>
     <string name="no_account">Not have account? <b>SignUp</b></string>
     <string name="setting">Setting</string>
