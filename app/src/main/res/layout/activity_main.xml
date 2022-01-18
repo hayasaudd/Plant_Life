@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="112dp"
-        android:text="welcome!"
+        android:text="@string/welcome"
         android:textSize="30dp" />
 
     <TextView
@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/welcome"
         android:layout_marginTop="390dp"
-        android:text="Taking care of plants has never been easier, but with 'Plant Life' it will be fun  "
+        android:text="@string/taking_care_of_plants_has_never_been_easier_but_with_plant_life_it_will_be_fun"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -41,7 +41,7 @@
         android:layout_marginStart="0dp"
         android:layout_marginTop="18dp"
         android:layout_marginEnd="1dp"
-        android:text="GET STARTED" />
+        android:text="@string/get_started" />
 
     <Button
         android:id="@+id/have_account"
@@ -49,6 +49,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/start"
         android:layout_marginTop="13dp"
-        android:text="alredy have account" />
+        android:text="@string/alredy_have_account" />
 
 </RelativeLayout>

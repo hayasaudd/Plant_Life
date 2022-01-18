@@ -3,12 +3,15 @@ package com.example.plant_life.model
 import android.content.Intent
 import android.util.Log
 import android.widget.Toast
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.content.ContextCompat.startActivity
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.plant_life.NotificationsActivity
 import com.example.plant_life.dataApi.*
+import com.example.plant_life.fragments.HomeFragment
 import com.example.plant_life.fragments.MyPlant_fragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
@@ -135,6 +138,7 @@ class PlantViewModel : ViewModel() {
                 val listType: Type = object : TypeToken<List<ResponseItem>?>() {}.type
                 val userFaveList: List<ResponseItem> = Gson().fromJson(s, listType) ?: emptyList()
 
+                favPlantList.MyPlantList.clear()
                 favPlantList.MyPlantList.addAll(userFaveList)
                 _favPlant.value = userFaveList
 
@@ -143,6 +147,7 @@ class PlantViewModel : ViewModel() {
             }
 
     }
+
 
 
 }

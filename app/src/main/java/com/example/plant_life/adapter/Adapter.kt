@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.plant_life.R
 import com.example.plant_life.dataApi.ResponseItem
-import com.example.plant_life.databinding.FragmentDitealsPlantPageBinding
 import com.example.plant_life.databinding.ItemStyleBinding
 import com.example.plant_life.fragments.HomeFragmentDirections
 import com.example.plant_life.model.PlantViewModel.Companion.favPlantList
@@ -22,102 +21,46 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
 
-class PlantAdapter(private val context: Context, val chekItem: Boolean) :
+class PlantAdapter(private val context: Context) :
     ListAdapter<ResponseItem, PlantAdapter.PlantInfoViewHolder>(DiffCallback) {
+    private val myPlantCollection = Firebase.firestore.collection("User profiles")
 
     inner class PlantInfoViewHolder(
-        private var binding:
+        var binding:
         ItemStyleBinding
     ) :
         RecyclerView.ViewHolder(binding.root) {
         val card: CardView = binding.cardView
         val buttonShare = binding.buttonShare
         val alarmButton = binding.alarmButton
-        lateinit var _binding: FragmentDitealsPlantPageBinding
-        private val myPlantCollection = Firebase.firestore.collection("User profiles")
 
 
         fun bind(resultsItems: ResponseItem) {
             binding.plantInfo = resultsItems
 
-
-            if (chekItem == true) {
-
-            }
-            for (b in favPlantList.MyPlantList) {
-                if (b.id == resultsItems.id && resultsItems.isFavPlant) {
-                    binding.likeImg.setImageResource(R.drawable.favorite_filled)
-                }
-            }
-
-            //  Log.e("TAG", "bind: it_id ${it.id} : resultsItems.id ${resultsItems.id} boolean ${it.id == resultsItems.id}  resultsItems.isFavPlant ${resultsItems.isFavPlant}", )
-
-//if (!resultsItems.isFavPlant) {
-
             binding.executePendingBindings()
             //button to add plant to "my plant"
-            binding?.likeImg?.setOnClickListener {
-
-//                var s =
-//                    favPlantList.MyPlantList.find { it.id == resultsItems.id } //check if the plant it's inn MyPlant list don't but it again
-//                if (s == null) {
-//                    favPlantList.MyPlantList.add(resultsItems)// add the plant in MyPlant List
-//                    myPlantCollection.document("${FirebaseAuth.getInstance().currentUser?.uid ?: ""}")
-//                        .update("my_planet", favPlantList.MyPlantList)
-//
-//                        .addOnCompleteListener {
-//                            Log.d("TAG", "bind: ${it.isSuccessful} ${it.result.toString()}")
-//                        }
-//                } else {
-//
-//                }
-
-                Log.e("TAG", "bind: ${resultsItems.isFavPlant}")
-
-                Log.e("TAG", "bind: size:  ${favPlantList.MyPlantList.size}")
-                var s = favPlantList.MyPlantList.find { it.id == resultsItems.id }
-
-//                        favPlantList.MyPlantList.find {
-//                            if(it.id == resultsItems.id){
-//                                Log.e("TAG", "bind: is fav", )
-//                            }else{
-//
-//                                Log.e("TAG", "bind: is NOOOOOOOOt fav", )
-//                            }
-//                            it.id == resultsItems.id
-//                            } //check if the plant it's inn MyPlant list don't but it again
-//                    Log.e("TAG", "bind: $s" )
-
-                if (s == null) {
-
-                    Log.e("TAG", "bind:  ${resultsItems}")
-                    binding.likeImg.setImageResource(R.drawable.favorite_filled)
-                    resultsItems.isFavPlant = true
-
-                    favPlantList.MyPlantList.add(resultsItems)// add the plant in MyPlant List
-                    myPlantCollection.document("${FirebaseAuth.getInstance().currentUser?.uid ?: ""}")
-                        .update("my_planet", favPlantList.MyPlantList)
-
-                        .addOnCompleteListener {
-                            Log.d("TAG", "bind: ${it.isSuccessful} ${it.result.toString()}")
-                        }
-
-                } else {
-                    favPlantList.MyPlantList.removeAll { it.id == resultsItems.id }
-                    myPlantCollection.document("${FirebaseAuth.getInstance().currentUser?.uid ?: ""}")
-                        .update("my_planet", favPlantList.MyPlantList)
-                    binding.likeImg.setImageResource(R.drawable.favorite_border)
-                    // resultsItems.isFavPlant = !resultsItems.isFavPlant
-                }
-
-                Log.d("adapter after", "${favPlantList.loadMyPlant()}")
-                //  }
-//                if (resultsItems.isFavPlant) {
-//                    binding.likeImg.setImageResource(R.drawable.favorite_filled)
-//                }
-            }
 
         }
+    }
+
+    private fun isFav(item: ResponseItem) =
+        favPlantList.MyPlantList.find {
+            it.id == item.id
+        }
+
+    private fun removePlanetFromFav(resultsItems: ResponseItem) {
+        favPlantList.MyPlantList.removeAll { it.id == resultsItems.id }
+        myPlantCollection.document(FirebaseAuth.getInstance().currentUser?.uid ?: "")
+            .update("my_planet", favPlantList.MyPlantList)
+    }
+
+    private fun addPlanetToFav(
+        item: ResponseItem
+    ) {
+        favPlantList.MyPlantList.add(item)// add the plant in MyPlant List
+        myPlantCollection.document(FirebaseAuth.getInstance().currentUser?.uid ?: "")
+            .update("my_planet", favPlantList.MyPlantList)
     }
 
     override fun onCreateViewHolder(
@@ -132,21 +75,48 @@ class PlantAdapter(private val context: Context, val chekItem: Boolean) :
 
     override fun onBindViewHolder(holder: PlantInfoViewHolder, position: Int) {
         val resultsItems = getItem(position)
+
         holder.bind(resultsItems)
+        val item = isFav(resultsItems)
+        if (item != null) {
+            holder.binding.likeImg.setImageResource(R.drawable.favorite_filled)
+            Log.d("TAG", "onBindViewHolder: ${holder.binding.plantInfo.toString()}")
+
+        } else {
+            holder.binding.likeImg.setImageResource(R.drawable.favorite_border)
+
+        }
+
+
         //hold the card of more info for plant list "after that i created argument for home fragment in nav_graf"
         holder.card.setOnClickListener {
-            Log.e("TAG", "id view :${position}")
             val action = HomeFragmentDirections.actionHomeFragmentToDitealsPlantPage(position)
             holder.itemView.findNavController().navigate(action)
 
         }
 
-        holder.buttonShare?.setOnClickListener {
-
-            Log.e("TAG", "onBindViewHolder: adapter")
+        holder.buttonShare.setOnClickListener {
             shared(resultsItems)
         }
 
+        holder.binding.likeImg
+            .setOnClickListener {
+
+
+                val s = isFav(resultsItems)
+                if (s == null) {
+                    holder.binding.likeImg.setImageResource(R.drawable.favorite_filled)
+                    addPlanetToFav(resultsItems)
+
+                } else {
+                    holder.binding.likeImg.setImageResource(R.drawable.favorite_border)
+                    removePlanetFromFav(resultsItems)
+                }
+            }
+
+        holder.alarmButton.setOnClickListener {
+
+        }
 
     }
 
@@ -157,7 +127,7 @@ class PlantAdapter(private val context: Context, val chekItem: Boolean) :
         }
 
         override fun areContentsTheSame(oldItem: ResponseItem, newItem: ResponseItem): Boolean {
-            return oldItem.image == newItem.image
+            return oldItem.id == newItem.id
         }
 
     }
@@ -178,16 +148,6 @@ class PlantAdapter(private val context: Context, val chekItem: Boolean) :
         }, null)
         context.startActivity(share)
 
-    }
-
-    fun checkPlantInFavList(item: ResponseItem): Boolean {
-        if (item != null) {
-            favPlantList.MyPlantList.find { it.id == item.id }
-            return true
-        }//check if the plant it's inn MyPlant list don't but it again
-        else {
-            return false
-        }
     }
 
 

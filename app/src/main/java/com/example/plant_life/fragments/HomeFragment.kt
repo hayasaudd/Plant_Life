@@ -43,7 +43,7 @@ class HomeFragment : Fragment() {
             Log.e("TAG", "onCreateView:  binding?.apply ${plantViewModel?.state.value}")
             lifecycleOwner = viewLifecycleOwner
             viewModel = plantViewModel
-            recyclerView?.adapter = PlantAdapter(requireContext(), false)
+            recyclerView.adapter = PlantAdapter(requireContext())
         }
         setHasOptionsMenu(true)
         return binding?.root
@@ -53,16 +53,20 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding2?.alarmButton?.setOnClickListener {
-            Toast.makeText(
-                requireContext(),
-                "Set alarm of watering and lighting",
-                Toast.LENGTH_SHORT
-            ).show()
-            val intent =
-                Intent(this@HomeFragment.requireContext(), NotificationsActivity::class.java)
-            startActivity(intent)
-        }
+
+
+
+    }
+
+     fun alarmNav() {
+        Toast.makeText(
+            requireContext(),
+            "Set alarm of watering and lighting",
+            Toast.LENGTH_SHORT
+        ).show()
+        val intent =
+            Intent(this@HomeFragment.requireContext(), NotificationsActivity::class.java)
+        startActivity(intent)
     }
 
 }

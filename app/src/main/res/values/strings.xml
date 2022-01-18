@@ -15,5 +15,24 @@
     <string name="Title">Title</string>
     <string name="message">Message</string>
     <string name="schedule_notification">Schedule Notification</string>
-    <string name="title">title</string> <!--make signup bold-->
+    <string name="title">title</string>
+    <string name="login_to_your_account">login to your account</string>
+    <string name="email1" translatable="false">Email</string>
+    <string name="login2">Login</string>
+    <string name="welcome">welcome!</string>
+    <string name="taking_care_of_plants_has_never_been_easier_but_with_plant_life_it_will_be_fun">Taking care of plants has never been easier, but with \'Plant Life\' it will be fun</string>
+    <string name="get_started">GET STARTED</string>
+    <string name="alredy_have_account">alredy have account</string>
+    <string name="add_alarm">Add Alarm</string>
+    <string name="signup">SignUp</string>
+    <string name="creat_a_new_account">Creat a New Account</string>
+    <string name="email">Email</string>
+    <string name="lighting">Lighting</string>
+    <string name="tempreture">Tempreture</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="bio">Bio</string>
+    <string name="save">Save</string>
+    <string name="logout">Logout</string>
+    <string name="watring">Watring</string> <!--make signup bold-->
 </resources>

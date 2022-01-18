@@ -40,7 +40,7 @@ class MyPlant_fragment : Fragment() {
         binding.apply {
             lifecycleOwner = viewLifecycleOwner
             viewModel = this@MyPlant_fragment.viewModel
-            recyclerView.adapter = PlantAdapter(requireContext(), true)
+            recyclerView.adapter = PlantAdapter(requireContext())
         }
 
         return binding.root
