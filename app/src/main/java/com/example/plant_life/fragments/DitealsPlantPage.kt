@@ -16,6 +16,7 @@ class DitealsPlantPage :Fragment(){
     private val viewModel: PlantViewModel by activityViewModels()
     var _binding: FragmentDitealsPlantPageBinding? = null
     private val binding get() = _binding
+
     var plant = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,6 +51,8 @@ class DitealsPlantPage :Fragment(){
             NotificationsActivity::class.java
         )
         startActivity(intent) }
+
+
     }
 
     fun alarmNav() {

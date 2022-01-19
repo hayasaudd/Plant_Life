@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">"حياة النبته "</string>
+    <string name="login">تسجيل الدخول</string>
+    <string name="no_account">إنشاء حساب</string>
+    <string name="setting">الإعدادات</string>
+    <string name="search">البحث</string>
+    <string name="my_plant">نباتاتي🌱 </string>
+    <string name="home">الرئيسية</string>
+    <string name="hello_blank_fragment">هاي</string>
+    <string name="profile">صفحتي</string>
+    <string name="the_time_for_watering_alarm_in">تسقية النبته</string>
+    <string name="the_time_for_light_alarm">نبتتك تحتاج للضوء</string>
+    <string name="Title">العنوان</string>
+    <string name="message">رسالة التنبيه</string>
+    <string name="schedule_notification">جدولة التنبيه</string>
+    <string name="title">العنوان</string>
+    <string name="login_to_your_account">تسجيل الدخول في حسابي</string>
+    <string name="email">إيميل</string>
+    <string name="login2">تسجيل الدخول</string>
+    <string name="welcome">مرحبا بك</string>
+    <string name="taking_care_of_plants_has_never_been_easier_but_with_plant_life_it_will_be_fun">"الإعتناء بالنباتات ليس سهلاً أبداً ولكن مع تطبيق \"حياة النبته\" سوف يكون الأمر ممتع للغاية "</string>
+    <string name="get_started">البدء</string>
+    <string name="alredy_have_account">لدي حساب مسبقاً</string>
+    <string name="add_alarm">إضافه تنبيه</string>
+    <string name="creat_a_new_account">إنشاء حساب</string>
+    <string name="signup">إنشاء حساب</string>
+    <string name="lighting">"الإضاءة "</string>
+    <string name="tempreture">درجة الحرارة</string>
+    <string name="first_name">"الإسم الأول "</string>
+    <string name="last_name">الإسم الثاني</string>
+    <string name="bio">نبذة عنك</string>
+    <string name="save">حفظ</string>
+    <string name="logout">تسجيل خروج</string>
+    <string name="watring">الماء</string>
+    <string name="email1">إيميل</string>
+    <string name="set_alarem">ضبط التنبيه</string>
+    <string name="select_your_language">إختيار اللغه</string>
+</resources>
