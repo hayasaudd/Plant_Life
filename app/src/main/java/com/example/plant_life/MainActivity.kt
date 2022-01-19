@@ -1,12 +1,17 @@
 package com.example.plant_life
 
+import android.content.Context
 import android.content.Intent
+import android.content.res.Configuration
+import android.content.res.Resources
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import com.example.plant_life.databinding.ActivityLoginBinding
 import com.example.plant_life.databinding.ActivityMainBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.ktx.Firebase
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -31,6 +36,19 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, LoginActivity::class.java))
             finish()
         }
+
+
+
+
     }
 
+
+
+
 }
+
+
+
+
+
+

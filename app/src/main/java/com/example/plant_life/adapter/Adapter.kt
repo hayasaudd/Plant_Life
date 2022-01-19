@@ -32,7 +32,7 @@ class PlantAdapter(private val context: Context) :
         RecyclerView.ViewHolder(binding.root) {
         val card: CardView = binding.cardView
         val buttonShare = binding.buttonShare
-        val alarmButton = binding.alarmButton
+
 
 
         fun bind(resultsItems: ResponseItem) {
@@ -80,11 +80,10 @@ class PlantAdapter(private val context: Context) :
         val item = isFav(resultsItems)
         if (item != null) {
             holder.binding.likeImg.setImageResource(R.drawable.favorite_filled)
-            Log.d("TAG", "onBindViewHolder: ${holder.binding.plantInfo.toString()}")
+            Log.d("TAG", "onBindViewHolder: ${holder.binding.plantInfo}")
 
         } else {
             holder.binding.likeImg.setImageResource(R.drawable.favorite_border)
-
         }
 
 
@@ -114,9 +113,7 @@ class PlantAdapter(private val context: Context) :
                 }
             }
 
-        holder.alarmButton.setOnClickListener {
 
-        }
 
     }
 

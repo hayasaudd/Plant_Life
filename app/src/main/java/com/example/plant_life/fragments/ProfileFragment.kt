@@ -8,7 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
-import com.example.plant_life.LoginActivity
+import com.example.plant_life.*
 import com.example.plant_life.databinding.FragmentProfileBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
@@ -35,6 +35,9 @@ class ProfileFragment : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
         return binding!!.root
+
+
+
     }
 
 
@@ -71,10 +74,11 @@ class ProfileFragment : Fragment() {
         profileCollection.document(FirebaseAuth.getInstance().currentUser?.uid ?: "").set(profile)
 
             .addOnCompleteListener {
-                Log.d("TAG", "addUser: ${it.isSuccessful}")
+                Log.d("TAG", "addUser: ${it.isSuccessful}")}}}
 
 
 
-            }
 
-    }}
+
+
+

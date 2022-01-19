@@ -20,16 +20,20 @@
         <entry key="app/src/main/res/layout/activity_notifications.xml" value="0.14322916666666666" />
         <entry key="app/src/main/res/layout/activity_profile.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.23974763406940064" />
+        <entry key="app/src/main/res/layout/bottom_sheet_dialog.xml" value="0.2791666666666667" />
         <entry key="app/src/main/res/layout/fragment_diteals_plant_page.xml" value="0.21481481481481482" />
         <entry key="app/src/main/res/layout/fragment_home_fragment.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_my_plant_fragment.xml" value="0.14947916666666666" />
         <entry key="app/src/main/res/layout/fragment_notification.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_settings.xml" value="0.1703125" />
         <entry key="app/src/main/res/layout/fragment_settings_fragment.xml" value="0.14947916666666666" />
         <entry key="app/src/main/res/layout/fragment_user_profile.xml" value="0.23125" />
         <entry key="app/src/main/res/layout/fragment_user_proile_info.xml" value="0.165" />
         <entry key="app/src/main/res/layout/grid_view_item.xml" value="0.15052083333333333" />
+        <entry key="app/src/main/res/layout/item_change_language.xml" value="0.2791666666666667" />
         <entry key="app/src/main/res/layout/item_style.xml" value="0.21481481481481482" />
+        <entry key="app/src/main/res/layout/localization_language.xml" value="0.2791666666666667" />
         <entry key="app/src/main/res/layout/profile_fragment.xml" value="0.1" />
         <entry key="app/src/main/res/menu/nav_menu.xml" value="0.25" />
       </map>

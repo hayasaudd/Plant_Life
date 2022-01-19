@@ -1,11 +1,14 @@
 package com.example.plant_life.fragments
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import com.example.plant_life.NotificationsActivity
 import com.example.plant_life.databinding.FragmentDitealsPlantPageBinding
 import com.example.plant_life.model.PlantViewModel
 
@@ -37,7 +40,28 @@ class DitealsPlantPage :Fragment(){
         super.onViewCreated(view, savedInstanceState)
         Log.e("TAG","idMovie:${plant}")
         viewModel.plantInfoData(plant)
+        binding?.alarmButton?.setOnClickListener { Toast.makeText(
+            requireContext(),
+            "set alarm of watering and lighting ",
+            Toast.LENGTH_SHORT
+        ).show()
+        val intent = Intent(
+            this@DitealsPlantPage.requireContext(),
+            NotificationsActivity::class.java
+        )
+        startActivity(intent) }
     }
 
-
+    fun alarmNav() {
+        Toast.makeText(
+            requireContext(),
+            "set alarm of watering and lighting ",
+            Toast.LENGTH_SHORT
+        ).show()
+        val intent = Intent(
+            this@DitealsPlantPage.requireContext(),
+            NotificationsActivity::class.java
+        )
+        startActivity(intent)
+    }
 }

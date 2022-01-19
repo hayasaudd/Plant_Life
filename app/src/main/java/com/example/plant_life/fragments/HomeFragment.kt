@@ -58,16 +58,7 @@ class HomeFragment : Fragment() {
 
     }
 
-     fun alarmNav() {
-        Toast.makeText(
-            requireContext(),
-            "Set alarm of watering and lighting",
-            Toast.LENGTH_SHORT
-        ).show()
-        val intent =
-            Intent(this@HomeFragment.requireContext(), NotificationsActivity::class.java)
-        startActivity(intent)
-    }
+
 
 }
 
