@@ -31,7 +31,6 @@ class PlantViewModel : ViewModel() {
     private val _status = MutableLiveData<PlantApiStatus>()
     val status: LiveData<PlantApiStatus> = _status
 
-
     private val _state = MutableLiveData<String>()
     val state: LiveData<String> = _state
 
@@ -128,7 +127,6 @@ class PlantViewModel : ViewModel() {
     }
 
     fun showPlantsList() {
-
         profileCollection.document(userId)
             .get()
             .addOnSuccessListener { task ->

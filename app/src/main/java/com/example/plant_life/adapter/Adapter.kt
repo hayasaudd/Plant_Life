@@ -15,13 +15,14 @@ import com.example.plant_life.R
 import com.example.plant_life.dataApi.ResponseItem
 import com.example.plant_life.databinding.ItemStyleBinding
 import com.example.plant_life.fragments.HomeFragmentDirections
+import com.example.plant_life.fragments.MyPlant_fragmentDirections
 import com.example.plant_life.model.PlantViewModel.Companion.favPlantList
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
 
-class PlantAdapter(private val context: Context) :
+class PlantAdapter(private val context: Context, private var page: String) :
     ListAdapter<ResponseItem, PlantAdapter.PlantInfoViewHolder>(DiffCallback) {
     private val myPlantCollection = Firebase.firestore.collection("User profiles")
 
@@ -33,22 +34,19 @@ class PlantAdapter(private val context: Context) :
         val card: CardView = binding.cardView
         val buttonShare = binding.buttonShare
 
-
-
+// bind the plantInfo ii is variable in xml of item style
         fun bind(resultsItems: ResponseItem) {
             binding.plantInfo = resultsItems
-
             binding.executePendingBindings()
-            //button to add plant to "my plant"
-
         }
     }
 
+//search about id of plant if in the fav list or not
     private fun isFav(item: ResponseItem) =
         favPlantList.MyPlantList.find {
             it.id == item.id
         }
-
+// function for remove plant from "My Plant" page
     private fun removePlanetFromFav(resultsItems: ResponseItem) {
         favPlantList.MyPlantList.removeAll { it.id == resultsItems.id }
         myPlantCollection.document(FirebaseAuth.getInstance().currentUser?.uid ?: "")
@@ -78,6 +76,7 @@ class PlantAdapter(private val context: Context) :
 
         holder.bind(resultsItems)
         val item = isFav(resultsItems)
+
         if (item != null) {
             holder.binding.likeImg.setImageResource(R.drawable.favorite_filled)
             Log.d("TAG", "onBindViewHolder: ${holder.binding.plantInfo}")
@@ -89,19 +88,26 @@ class PlantAdapter(private val context: Context) :
 
         //hold the card of more info for plant list "after that i created argument for home fragment in nav_graf"
         holder.card.setOnClickListener {
-            val action = HomeFragmentDirections.actionHomeFragmentToDitealsPlantPage(position)
-            holder.itemView.findNavController().navigate(action)
+            if (page == "Home") {
+                val action = HomeFragmentDirections.actionHomeFragmentToDitealsPlantPage(position)
+                holder.itemView.findNavController().navigate(action)
+            } else if (page == "MyPlant") {
+                val action =
+                    MyPlant_fragmentDirections.actionMayPlantFragmentToDitealsPlantPage(position)
+                holder.itemView.findNavController().navigate(action)
+            }
+
 
         }
 
+        //this action to share link of plant image
         holder.buttonShare.setOnClickListener {
             shared(resultsItems)
         }
 
+        //button to add plant to "my plant" and check if will put favorite_filled or favorite_border
         holder.binding.likeImg
             .setOnClickListener {
-
-
                 val s = isFav(resultsItems)
                 if (s == null) {
                     holder.binding.likeImg.setImageResource(R.drawable.favorite_filled)
@@ -112,9 +118,6 @@ class PlantAdapter(private val context: Context) :
                     removePlanetFromFav(resultsItems)
                 }
             }
-
-
-
     }
 
 
@@ -122,13 +125,12 @@ class PlantAdapter(private val context: Context) :
         override fun areItemsTheSame(oldItem: ResponseItem, newItem: ResponseItem): Boolean {
             return oldItem.id == newItem.id
         }
-
         override fun areContentsTheSame(oldItem: ResponseItem, newItem: ResponseItem): Boolean {
             return oldItem.id == newItem.id
         }
-
     }
 
+    //function to share linke of image plant
     fun shared(resultsItems: ResponseItem) {
         val share = Intent.createChooser(Intent().apply {
             action = Intent.ACTION_SEND
@@ -138,7 +140,9 @@ class PlantAdapter(private val context: Context) :
             // (Optional) Here we're setting the title of the content
             putExtra(Intent.EXTRA_TITLE, "Introducing content previews")
 
+                    //text write it with the link of image
                 .putExtra(Intent.EXTRA_TEXT, "see my new plant ${resultsItems.image} ")
+                    //the type of share content
                 .setType("text/plain")
 
 

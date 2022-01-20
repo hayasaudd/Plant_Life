@@ -43,7 +43,7 @@ class HomeFragment : Fragment() {
             Log.e("TAG", "onCreateView:  binding?.apply ${plantViewModel?.state.value}")
             lifecycleOwner = viewLifecycleOwner
             viewModel = plantViewModel
-            recyclerView.adapter = PlantAdapter(requireContext())
+            recyclerView.adapter = PlantAdapter(requireContext(), "Home")
         }
         setHasOptionsMenu(true)
         return binding?.root

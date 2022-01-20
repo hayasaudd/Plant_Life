@@ -52,7 +52,7 @@ class ProfileFragment : Fragment() {
                 Intent(requireActivity(), LoginActivity::class.java)
             startActivity(intent)
         }
-
+// handle click - save changes of user information
         binding!!.SaveButton.setOnClickListener {
             addUser(createUser())
             val action = ProfileFragmentDirections.actionProfileFragmentToUserProileInfoFragment()
@@ -60,7 +60,7 @@ class ProfileFragment : Fragment() {
         }
     }
 
-
+//creat a new user on firebase
     fun createUser ():User{
         var idUser= Firebase.auth.currentUser!!.uid
         var firstName = binding!!.etFirstName.text.toString()

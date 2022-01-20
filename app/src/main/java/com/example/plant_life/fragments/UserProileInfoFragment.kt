@@ -34,14 +34,15 @@ class UserProileInfoFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         Log.e("TAG", "onViewCreated: in")
+        //call function for show user information
         viewModel.showUserInfo()
-
+//handle click - edit user info
         binding?.EditButton?.setOnClickListener {
             val action =
                 UserProileInfoFragmentDirections.actionUserProileInfoFragmentToProfileFragment()
             Navigation.findNavController(it).navigate(action)
         }
-
+//handle click set notification
         binding?.setalarmButton?.setOnClickListener {
             Toast.makeText(
                 requireContext(),

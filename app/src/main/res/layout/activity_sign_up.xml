@@ -17,12 +17,24 @@
         style="@style/TextAppearance.AppCompat.Headline"
         />
     <TextView
+        android:id="@+id/text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:text="@string/creat_a_new_account"
         android:layout_below="@id/titleLabel"
         style="@style/TextAppearance.MaterialComponents.Caption"/>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text"
+        app:lottie_rawRes="@raw/data"
+        android:layout_marginBottom="390dp"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_url="REPLACE_JSON_URL" />
 
     <!--Email-->
     <com.google.android.material.textfield.TextInputLayout

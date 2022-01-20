@@ -66,14 +66,18 @@
         android:id="@+id/MayPlant_fragment"
         android:name="com.example.plant_life.fragments.MyPlant_fragment"
         android:label="fragment_my_plant_fragment"
-        tools:layout="@layout/fragment_my_plant_fragment" />
+        tools:layout="@layout/fragment_my_plant_fragment" >
+        <action
+            android:id="@+id/action_MayPlant_fragment_to_ditealsPlantPage"
+            app:destination="@id/ditealsPlantPage" />
+    </fragment>
 
 
     <fragment
         android:id="@+id/ditealsPlantPage"
-        android:name="com.example.plant_life.fragments.DitealsPlantPage"
+        android:name="com.example.plant_life.fragments.DetailsPlantPage"
         android:label="fragment_diteals_plant_page"
-        tools:layout="@layout/fragment_diteals_plant_page" >
+        tools:layout="@layout/fragment_details_plant_page" >
         <action
             android:id="@+id/action_ditealsPlantPage_to_Home_fragment"
             app:destination="@id/Home_fragment" />
@@ -109,11 +113,5 @@
         android:id="@+id/notification"
         android:name="com.example.plant_life.Notification"
         android:label="Notification" />
-    <fragment
-        android:id="@+id/settingsFragment"
-        android:name="com.example.plant_life.fragments.SettingsFragment"
-        android:label="fragment_settings"
-        tools:layout="@layout/fragment_settings" />
-
 
 </navigation>

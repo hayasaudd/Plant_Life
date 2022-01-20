@@ -1,25 +1,15 @@
 package com.example.plant_life.fragments
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Adapter
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModel
-import androidx.recyclerview.widget.RecyclerView
-import com.example.plant_life.R
 import com.example.plant_life.adapter.PlantAdapter
-import com.example.plant_life.databinding.FragmentDitealsPlantPageBinding
 import com.example.plant_life.databinding.FragmentMyPlantFragmentBinding
-import com.example.plant_life.databinding.ItemStyleBinding
 import com.example.plant_life.model.PlantViewModel
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.ktx.Firebase
-
 
 class MyPlant_fragment : Fragment() {
     private val viewModel: PlantViewModel by viewModels()
@@ -40,7 +30,7 @@ class MyPlant_fragment : Fragment() {
         binding.apply {
             lifecycleOwner = viewLifecycleOwner
             viewModel = this@MyPlant_fragment.viewModel
-            recyclerView.adapter = PlantAdapter(requireContext())
+            recyclerView.adapter = PlantAdapter(requireContext(), "MyPlant")
         }
 
         return binding.root
