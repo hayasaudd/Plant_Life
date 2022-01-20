@@ -113,17 +113,27 @@ class PlantViewModel : ViewModel() {
             }.addOnFailureListener { println(it.message) }
     }
 
-    fun plantInfoData(position: Int) {
-        val item = _plantInfo.value?.get(position)
-        Log.e("TAG", "idplant:${item?.id}")
-        Log.e("TAG", "id view:${position}")
-        _plantImage.value = item?.image
-        _plantName.value = item?.PlantName
-        _plantImageBackground.value = item?.backgroundImage
-        _Watering.value = item?.Watering
-        _Lighting.value = item?.Lighting
-        _Temperature.value = item?.Temperature
-        Log.e("TAG", "plant picture:${plantImage}")
+    fun plantInfoData(position: String) {
+        for (item in _plantInfo.value!!){
+            if (item?.id== position){
+                _plantImage.value = item?.image
+                _plantName.value = item?.PlantName
+                _plantImageBackground.value = item?.backgroundImage
+                _Watering.value = item?.Watering
+                _Lighting.value = item?.Lighting
+                _Temperature.value = item?.Temperature
+            }
+        }
+//        val item = _plantInfo.value?.get(position)
+//        Log.e("TAG", "idplant:${item?.id}")
+//        Log.e("TAG", "id view:${position}")
+//        _plantImage.value = item?.image
+//        _plantName.value = item?.PlantName
+//        _plantImageBackground.value = item?.backgroundImage
+//        _Watering.value = item?.Watering
+//        _Lighting.value = item?.Lighting
+//        _Temperature.value = item?.Temperature
+//        Log.e("TAG", "plant picture:${plantImage}")
     }
 
     fun showPlantsList() {

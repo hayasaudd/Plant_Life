@@ -18,13 +18,13 @@ class DetailsPlantPage : Fragment() {
     var _binding: FragmentDetailsPlantPageBinding? = null
     private val binding get() = _binding
 
-    var plant = 0
+    lateinit var plant : String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
 
         arguments.let {
-            plant = it!!.getInt("id")
+            plant = it?.getString("id")!!
             Log.e("TAG", "id:${plant}")
         }
     }

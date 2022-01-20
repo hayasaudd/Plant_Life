@@ -83,7 +83,7 @@
             app:destination="@id/Home_fragment" />
         <argument
             android:name="id"
-            app:argType="integer" />
+            app:argType="string" />
         <action
             android:id="@+id/action_ditealsPlantPage_to_MayPlant_fragment"
             app:destination="@id/MayPlant_fragment" />

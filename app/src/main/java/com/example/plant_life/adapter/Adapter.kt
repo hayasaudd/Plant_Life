@@ -89,11 +89,11 @@ class PlantAdapter(private val context: Context, private var page: String) :
         //hold the card of more info for plant list "after that i created argument for home fragment in nav_graf"
         holder.card.setOnClickListener {
             if (page == "Home") {
-                val action = HomeFragmentDirections.actionHomeFragmentToDitealsPlantPage(position)
+                val action = HomeFragmentDirections.actionHomeFragmentToDitealsPlantPage(resultsItems.id)
                 holder.itemView.findNavController().navigate(action)
             } else if (page == "MyPlant") {
                 val action =
-                    MyPlant_fragmentDirections.actionMayPlantFragmentToDitealsPlantPage(position)
+                    MyPlant_fragmentDirections.actionMayPlantFragmentToDitealsPlantPage(resultsItems.id)
                 holder.itemView.findNavController().navigate(action)
             }
 
