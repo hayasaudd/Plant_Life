@@ -39,14 +39,13 @@ Animations & Transitions.
 <img width="1536" alt="Screen Shot 2022-01-21 at 3 18 28 PM" src="https://user-images.githubusercontent.com/92260175/150528932-52d19671-17be-4c73-b7ea-373022244112.png">
 
 ## UI
-<img width="357" alt="Screen Shot 2022-01-21 at 4 14 44 PM" src="https://user-images.githubusercontent.com/92260175/150533327-2828afd0-8c91-4599-bb2f-63b63716e7ef.png">
+<img width="357" alt="Screen Shot 2022-01-21 at 4 14 44 PM" src="https://user-images.githubusercontent.com/92260175/150533327-2828afd0-8c91-4599-bb2f-63b63716e7ef.png"> <img width="357" alt="Screen Shot 2022-01-21 at 3 45 49 PM" src="https://user-images.githubusercontent.com/92260175/150533361-7f9bc482-16b4-438a-8648-21bb6028a6cd.png">
 
-<img width="357" alt="Screen Shot 2022-01-21 at 3 45 49 PM" src="https://user-images.githubusercontent.com/92260175/150533361-7f9bc482-16b4-438a-8648-21bb6028a6cd.png">
-<img width="357" alt="Screen Shot 2022-01-21 at 4 05 56 PM" src="https://user-images.githubusercontent.com/92260175/150533385-bcc84925-1a44-42c3-acd6-1f2258e4df2c.png">
-<img width="357" alt="Screen Shot 2022-01-21 at 4 09 03 PM" src="https://user-images.githubusercontent.com/92260175/150533415-100f609d-6192-4258-a18e-cadc5a5a26d9.png">
-<img width="357" alt="Screen Shot 2022-01-21 at 4 06 11 PM" src="https://user-images.githubusercontent.com/92260175/150533448-98366de5-91cc-4981-8989-fd385e8773b2.png">
-<img width="357" alt="Screen Shot 2022-01-21 at 4 09 20 PM" src="https://user-images.githubusercontent.com/92260175/150533475-29a2ab09-a00d-4886-b04b-cce379b2d750.png">
-<img width="357" alt="Screen Shot 2022-01-21 at 4 14 11 PM" src="https://user-images.githubusercontent.com/92260175/150533493-61d57789-cf9d-4a45-ab22-ffa7299148ac.png">
+<img width="357" alt="Screen Shot 2022-01-21 at 4 05 56 PM" src="https://user-images.githubusercontent.com/92260175/150533385-bcc84925-1a44-42c3-acd6-1f2258e4df2c.png"> <img width="357" alt="Screen Shot 2022-01-21 at 4 09 03 PM" src="https://user-images.githubusercontent.com/92260175/150533415-100f609d-6192-4258-a18e-cadc5a5a26d9.png">
+
+<img width="357" alt="Screen Shot 2022-01-21 at 4 06 11 PM" src="https://user-images.githubusercontent.com/92260175/150533448-98366de5-91cc-4981-8989-fd385e8773b2.png"> <img width="357" alt="Screen Shot 2022-01-21 at 4 09 20 PM" src="https://user-images.githubusercontent.com/92260175/150533475-29a2ab09-a00d-4886-b04b-cce379b2d750.png">
+
+<img width="357" alt="Screen Shot 2022-01-21 at 4 14 11 PM" src="https://user-images.githubusercontent.com/92260175/150533493-61d57789-cf9d-4a45-ab22-ffa7299148ac.png"> <img width="357" alt="Screen Shot 2022-01-21 at 3 49 53 PM" src="https://user-images.githubusercontent.com/92260175/150533729-0a0bce6b-8530-464e-82a8-82f1b87829cf.png">
 
 ## Resources
 - https://developer.android.com
