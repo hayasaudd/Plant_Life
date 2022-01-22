@@ -9,6 +9,9 @@
         <variable
             name="plantInfo"
             type="com.example.plant_life.dataApi.ResponseItem" />
+        <variable
+            name="viewModel"
+            type="com.example.plant_life.model.PlantViewModel" />
 
 
     </data>
@@ -18,11 +21,12 @@
         android:layout_width="400dp"
         android:layout_height="wrap_content"
         android:clickable="true"
-        android:background="@color/white"
         app:cardUseCompatPadding="true"
         card_view:cardBackgroundColor="@color/whitegreen1"
         card_view:cardElevation="0dp"
         app:cardCornerRadius="20dp">
+
+
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="400dp"

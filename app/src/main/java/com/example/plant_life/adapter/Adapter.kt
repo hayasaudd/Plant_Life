@@ -37,6 +37,7 @@ class PlantAdapter(private val context: Context, private var page: String) :
 // bind the plantInfo ii is variable in xml of item style
         fun bind(resultsItems: ResponseItem) {
             binding.plantInfo = resultsItems
+    Log.e("TAG", "bind: ${resultsItems.PlantName}", )
             binding.executePendingBindings()
         }
     }
@@ -56,6 +57,7 @@ class PlantAdapter(private val context: Context, private var page: String) :
     private fun addPlanetToFav(
         item: ResponseItem
     ) {
+        Log.e("TAG", "addPlanetToFav: ${item.PlantName}", )
         favPlantList.MyPlantList.add(item)// add the plant in MyPlant List
         myPlantCollection.document(FirebaseAuth.getInstance().currentUser?.uid ?: "")
             .update("my_planet", favPlantList.MyPlantList)
@@ -73,6 +75,8 @@ class PlantAdapter(private val context: Context, private var page: String) :
 
     override fun onBindViewHolder(holder: PlantInfoViewHolder, position: Int) {
         val resultsItems = getItem(position)
+        Log.e("TAG", "onBindViewHolder: ${resultsItems.image}", )
+
 
         holder.bind(resultsItems)
         val item = isFav(resultsItems)
@@ -130,7 +134,7 @@ class PlantAdapter(private val context: Context, private var page: String) :
         }
     }
 
-    //function to share linke of image plant
+    //function to share link of image plant
     fun shared(resultsItems: ResponseItem) {
         val share = Intent.createChooser(Intent().apply {
             action = Intent.ACTION_SEND

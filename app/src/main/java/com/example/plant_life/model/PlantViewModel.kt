@@ -106,7 +106,6 @@ class PlantViewModel : ViewModel() {
         Log.e("TAG", "showUserInfo: doc $doc")
         doc.get()
             .addOnCompleteListener { task ->
-                Log.e("TAG", "showUserInfo:  1 ")
                 _firstName.value = task.result.data?.get("firstName").toString()
                 _lastName.value = task.result.data?.get("lastName").toString()
                 _Bio.value = task.result.data?.get("bio").toString()
@@ -149,6 +148,7 @@ class PlantViewModel : ViewModel() {
                 favPlantList.MyPlantList.clear()
                 favPlantList.MyPlantList.addAll(userFaveList)
                 _favPlant.value = userFaveList
+//                Log.e("TAG", "showPlantsList: ${}", )
 
             }.addOnFailureListener {
                 println(it.message)
