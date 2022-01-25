@@ -23,7 +23,7 @@ class SignUpActivity : AppCompatActivity() {
 
     //FirebaseAuth
     private lateinit var firebaseAuth: FirebaseAuth
-    private var email= ""
+    private var email = ""
     private var password = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,7 +49,7 @@ class SignUpActivity : AppCompatActivity() {
         firebaseAuth = FirebaseAuth.getInstance()
 
         //handle click - begin signup
-        binding.signUpBtn.setOnClickListener{
+        binding.signUpBtn.setOnClickListener {
             //validate data
             validateData()
         }
@@ -64,20 +64,17 @@ class SignUpActivity : AppCompatActivity() {
 
 
         //validate data
-        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             //invalid email format
-            binding.emailEt.error ="Invalid email format "
-        }
-        else if (TextUtils.isEmpty(password)){
+            binding.emailEt.error = "Invalid email format "
+        } else if (TextUtils.isEmpty(password)) {
             //password isn't enterd
             binding.passwordEt.error = "Please enter password"
 
-        }
-        else if (password.length <6){
+        } else if (password.length < 6) {
             //password length is less than 6
-            binding.passwordEt.error= "Password must be atleast 6 charecter long"
-        }
-        else {
+            binding.passwordEt.error = "Password must be atleast 6 charecter long"
+        } else {
             //data is valid - continue signUp
             firebaseSignUp()
         }
@@ -102,10 +99,10 @@ class SignUpActivity : AppCompatActivity() {
                 startActivity(Intent(this, HomeActivity::class.java))
                 finish()
             }
-            .addOnFailureListener{e ->
+            .addOnFailureListener { e ->
                 //signUp failed
                 progressDialog.dismiss()
-                    Toast.makeText(this, "SignUp Failed due to ${e.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "SignUp Failed due to ${e.message}", Toast.LENGTH_SHORT).show()
             }
     }
 

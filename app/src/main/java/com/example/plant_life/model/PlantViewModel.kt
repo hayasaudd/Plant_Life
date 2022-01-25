@@ -101,7 +101,6 @@ class PlantViewModel : ViewModel() {
     }
 
     fun showUserInfo() {
-        Log.e("TAG", "showUserInfo: in")
         var doc = profileCollection.document(userId)
         Log.e("TAG", "showUserInfo: doc $doc")
         doc.get()
@@ -113,8 +112,8 @@ class PlantViewModel : ViewModel() {
     }
 
     fun plantInfoData(position: String) {
-        for (item in _plantInfo.value!!){
-            if (item?.id== position){
+        for (item in _plantInfo.value!!) {
+            if (item?.id == position) {
                 _plantImage.value = item?.image
                 _plantName.value = item?.PlantName
                 _plantImageBackground.value = item?.backgroundImage
@@ -123,40 +122,22 @@ class PlantViewModel : ViewModel() {
                 _Temperature.value = item?.Temperature
             }
         }
-//        val item = _plantInfo.value?.get(position)
-//        Log.e("TAG", "idplant:${item?.id}")
-//        Log.e("TAG", "id view:${position}")
-//        _plantImage.value = item?.image
-//        _plantName.value = item?.PlantName
-//        _plantImageBackground.value = item?.backgroundImage
-//        _Watering.value = item?.Watering
-//        _Lighting.value = item?.Lighting
-//        _Temperature.value = item?.Temperature
-//        Log.e("TAG", "plant picture:${plantImage}")
     }
 
     fun showPlantsList() {
         profileCollection.document(userId)
             .get()
             .addOnSuccessListener { task ->
-
                 val dataList = task.get("my_planet")
                 val s = Gson().toJson(dataList)
                 val listType: Type = object : TypeToken<List<ResponseItem>?>() {}.type
                 val userFaveList: List<ResponseItem> = Gson().fromJson(s, listType) ?: emptyList()
-
                 favPlantList.MyPlantList.clear()
                 favPlantList.MyPlantList.addAll(userFaveList)
                 _favPlant.value = userFaveList
-//                Log.e("TAG", "showPlantsList: ${}", )
-
             }.addOnFailureListener {
                 println(it.message)
             }
-
     }
-
-
-
 }
 

@@ -16,7 +16,7 @@ import com.google.firebase.auth.FirebaseAuth
 
 class LoginActivity : AppCompatActivity() {
     //ViewBinding
-    private lateinit var binding:ActivityLoginBinding
+    private lateinit var binding: ActivityLoginBinding
 
     //ActionBar
     private lateinit var actionBar: ActionBar
@@ -26,7 +26,7 @@ class LoginActivity : AppCompatActivity() {
 
     //FirebaseAuth
     private lateinit var firebaseAuth: FirebaseAuth
-    private var email= ""
+    private var email = ""
     private var password = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,7 +46,6 @@ class LoginActivity : AppCompatActivity() {
 
         //init firebaseAuth
         firebaseAuth = FirebaseAuth.getInstance()
-//        checkUser()
 
         //handel click - open SignUpActivity
         binding.noAccountTv.setOnClickListener {
@@ -54,7 +53,7 @@ class LoginActivity : AppCompatActivity() {
         }
 
         //handel click- bedin login
-        binding.loginBtn.setOnClickListener{
+        binding.loginBtn.setOnClickListener {
             //before logging in, validate data
             validateData()
         }
@@ -73,15 +72,13 @@ class LoginActivity : AppCompatActivity() {
         password = binding.passwordEt.text.toString().trim()
 
         //validate data
-        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             //invalid email formate
             binding.emailEt.setError("Invalid Email format")
-        }
-        else if (TextUtils.isEmpty(password)){
+        } else if (TextUtils.isEmpty(password)) {
             //no password entered
             binding.passwordEt.error = "Pleas enter password"
-        }
-        else{
+        } else {
             //data is validated, being login
             firebaseLogin()
         }
@@ -96,13 +93,13 @@ class LoginActivity : AppCompatActivity() {
                 progressDialog.dismiss()
 
                 //get User information
-                val firebaseUser =firebaseAuth.currentUser
+                val firebaseUser = firebaseAuth.currentUser
                 val email = firebaseUser!!.email
                 Toast.makeText(this, "LoggedIn as $email ", Toast.LENGTH_SHORT).show()
                 startActivity(Intent(this, HomeActivity::class.java))
                 finish()
             }
-            .addOnFailureListener{ e->
+            .addOnFailureListener { e ->
                 //login failed
                 progressDialog.dismiss()
                 Toast.makeText(this, "Log failed due to ${e.message}", Toast.LENGTH_SHORT).show()
@@ -113,7 +110,7 @@ class LoginActivity : AppCompatActivity() {
         // if User is already logged in go to profile activity
         //get current User
         val firbaseUser = firebaseAuth.currentUser
-        if(firbaseUser != null){
+        if (firbaseUser != null) {
             //User is alredy logged in
             startActivity(Intent(this, HomeActivity::class.java))
             finish()

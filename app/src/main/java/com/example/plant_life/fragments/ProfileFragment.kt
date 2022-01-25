@@ -20,33 +20,24 @@ class ProfileFragment : Fragment() {
 
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding
-
     private val profileCollection = Firebase.firestore.collection("User profiles")
 
     //FirebaseAuth
     private lateinit var firebaseAuth: FirebaseAuth
-
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         // Inflate the layout for this fragment
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
         return binding!!.root
-
-
-
     }
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
 // handle click - logout
-        firebaseAuth= FirebaseAuth.getInstance()
-        binding!!.logoutBtn.setOnClickListener{
+        firebaseAuth = FirebaseAuth.getInstance()
+        binding!!.logoutBtn.setOnClickListener {
             firebaseAuth.signOut()
             val intent =
                 Intent(requireActivity(), LoginActivity::class.java)
@@ -60,21 +51,23 @@ class ProfileFragment : Fragment() {
         }
     }
 
-//creat a new user on firebase
-    fun createUser ():User{
-        var idUser= Firebase.auth.currentUser!!.uid
+    //creat a new user on firebase
+    fun createUser(): User {
+        var idUser = Firebase.auth.currentUser!!.uid
         var firstName = binding!!.etFirstName.text.toString()
         var lastName = binding!!.etLastName.text.toString()
         var bio = binding!!.etBio.text.toString()
-        return User(idUser, firstName, lastName, bio , mapOf())
+        return User(idUser, firstName, lastName, bio, mapOf())
     }
 
     // Add a new document with a generated ID
-    fun addUser(profile : User) {
+    fun addUser(profile: User) {
         profileCollection.document(FirebaseAuth.getInstance().currentUser?.uid ?: "").set(profile)
-
             .addOnCompleteListener {
-                Log.d("TAG", "addUser: ${it.isSuccessful}")}}}
+                Log.d("TAG", "addUser: ${it.isSuccessful}")
+            }
+    }
+}
 
 
 

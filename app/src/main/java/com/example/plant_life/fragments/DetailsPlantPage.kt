@@ -18,14 +18,13 @@ class DetailsPlantPage : Fragment() {
     var _binding: FragmentDetailsPlantPageBinding? = null
     private val binding get() = _binding
 
-    lateinit var plant : String
+    lateinit var plant: String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
 
         arguments.let {
             plant = it?.getString("id")!!
-            Log.e("TAG", "id:${plant}")
         }
     }
 
@@ -44,9 +43,7 @@ class DetailsPlantPage : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         Log.e("TAG", "${plant}")
-
         viewModel.plantInfoData(plant)
-
 //it's action for button from Details plant fragment to Notification activities
         binding?.alarmButton?.setOnClickListener {
             Toast.makeText(

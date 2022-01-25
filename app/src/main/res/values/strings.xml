@@ -38,5 +38,6 @@
     <string name="set_alarem">Set Alarem</string>
     <string name="select_your_language">Select your language</string>
     <string name="set_alarm">Set Alarm</string>
-    <string name="edit_info">Edit Info</string> <!--make signup bold-->
+    <string name="edit_info">Edit Info</string>
+    <string name="profile_p">Profile</string> <!--make signup bold-->
 </resources>

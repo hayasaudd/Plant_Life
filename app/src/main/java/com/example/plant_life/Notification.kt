@@ -14,7 +14,6 @@ const val messageExtra = "massegeExtra"
 
 class Notification : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
-        Log.e("TAG", "onReceive: iam here in NotificationViewMode ", )
         val notificaion = NotificationCompat.Builder(context, channelID)
             .setSmallIcon(R.drawable.ic_launcher_foreground)
             .setContentTitle(intent.getStringExtra(titleExtra))

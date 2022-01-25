@@ -17,9 +17,7 @@ class NotificationsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityNotificationsBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         Toast.makeText(this, "NotificationActivity", Toast.LENGTH_SHORT).show()
-
         createNotificationChannel()
         binding.submitButton.setOnClickListener { scheduleNotification() }
 
@@ -32,14 +30,12 @@ class NotificationsActivity : AppCompatActivity() {
         val message = binding.messageET.text.toString()
         intent.putExtra(titleExtra, title)
         intent.putExtra(messageExtra, message)
-
         val pendingIntent = PendingIntent.getBroadcast(
             applicationContext,
             notificationID,
             intent,
             PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
         )
-
 
         val alarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
         val time = getTime()
@@ -76,7 +72,6 @@ class NotificationsActivity : AppCompatActivity() {
         val day = binding.datePicker.dayOfMonth
         val month = binding.datePicker.month
         val year = binding.datePicker.year
-
         val calendar = Calendar.getInstance()
         calendar.set(year, month, day, hour, minute)
 

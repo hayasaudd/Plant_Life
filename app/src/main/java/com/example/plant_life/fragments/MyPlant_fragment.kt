@@ -15,7 +15,6 @@ class MyPlant_fragment : Fragment() {
     private val viewModel: PlantViewModel by viewModels()
     lateinit var binding: FragmentMyPlantFragmentBinding
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
@@ -32,7 +31,6 @@ class MyPlant_fragment : Fragment() {
             viewModel = this@MyPlant_fragment.viewModel
             recyclerView.adapter = PlantAdapter(requireContext(), "MyPlant")
         }
-
         return binding.root
     }
 
@@ -41,9 +39,6 @@ class MyPlant_fragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         (activity as AppCompatActivity).supportActionBar?.title = "My Plant"
         viewModel.showPlantsList()
-
-
     }
-
 
 }

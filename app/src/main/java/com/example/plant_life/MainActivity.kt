@@ -24,25 +24,20 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 //        binding1 = ActivityNotificationBindin.inflate()
-
         binding.start.setOnClickListener {
             startActivity(Intent(this, SignUpActivity::class.java))
 
         }
 
         //handel click alredy have acount
-        binding.haveAccount.setOnClickListener{
+        binding.haveAccount.setOnClickListener {
             //validate data
             startActivity(Intent(this, LoginActivity::class.java))
             finish()
         }
 
 
-
-
     }
-
-
 
 
 }

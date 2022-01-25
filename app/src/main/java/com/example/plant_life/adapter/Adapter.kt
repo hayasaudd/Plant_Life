@@ -57,7 +57,6 @@ class PlantAdapter(private val context: Context, private var page: String) :
     private fun addPlanetToFav(
         item: ResponseItem
     ) {
-        Log.e("TAG", "addPlanetToFav: ${item.PlantName}", )
         favPlantList.MyPlantList.add(item)// add the plant in MyPlant List
         myPlantCollection.document(FirebaseAuth.getInstance().currentUser?.uid ?: "")
             .update("my_planet", favPlantList.MyPlantList)
@@ -75,16 +74,11 @@ class PlantAdapter(private val context: Context, private var page: String) :
 
     override fun onBindViewHolder(holder: PlantInfoViewHolder, position: Int) {
         val resultsItems = getItem(position)
-        Log.e("TAG", "onBindViewHolder: ${resultsItems.image}", )
-
-
         holder.bind(resultsItems)
         val item = isFav(resultsItems)
 
         if (item != null) {
             holder.binding.likeImg.setImageResource(R.drawable.favorite_filled)
-            Log.d("TAG", "onBindViewHolder: ${holder.binding.plantInfo}")
-
         } else {
             holder.binding.likeImg.setImageResource(R.drawable.favorite_border)
         }
@@ -100,7 +94,6 @@ class PlantAdapter(private val context: Context, private var page: String) :
                     MyPlant_fragmentDirections.actionMayPlantFragmentToDitealsPlantPage(resultsItems.id)
                 holder.itemView.findNavController().navigate(action)
             }
-
 
         }
 
@@ -140,7 +133,6 @@ class PlantAdapter(private val context: Context, private var page: String) :
             action = Intent.ACTION_SEND
             type = "text/plain"
             putExtra(Intent.EXTRA_TEXT, "https://developer.android.com/training/sharing/")
-
             // (Optional) Here we're setting the title of the content
             putExtra(Intent.EXTRA_TITLE, "Introducing content previews")
 
@@ -148,8 +140,6 @@ class PlantAdapter(private val context: Context, private var page: String) :
                 .putExtra(Intent.EXTRA_TEXT, "see my new plant ${resultsItems.image} ")
                     //the type of share content
                 .setType("text/plain")
-
-
         }, null)
         context.startActivity(share)
 

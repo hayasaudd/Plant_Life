@@ -91,7 +91,7 @@
     <fragment
         android:id="@+id/ProfileFragment"
         android:name="com.example.plant_life.fragments.ProfileFragment"
-        android:label="fragment_profile"
+        android:label="Profile"
         tools:layout="@layout/fragment_profile" >
         <action
             android:id="@+id/action_ProfileFragment_to_userProileInfoFragment"
